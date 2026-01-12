@@ -1,0 +1,56 @@
+﻿using backend_lib;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace GassLivery_Kelompok7
+{
+    public partial class FormGassRideKonfirmasi : Form
+    {
+        OrderRide pesanan;
+        public FormGassRideKonfirmasi(OrderRide pPesanan)
+        {
+            InitializeComponent();
+            pesanan = pPesanan;
+        }
+
+        
+        private void FormGassRideKonfirmasi_Load(object sender, EventArgs e)
+        {
+            //ambil data motor dari driver
+            labelNamaDriver.Text = pesanan.Driver.Nama;
+            labelMotor.Text = pesanan.Driver.Motor.Nama;
+            labelRating.Text = pesanan.Driver.Rating.ToString();
+            labelPlat.Text = pesanan.Driver.Motor.PlatNomor;            
+        }
+
+        private void buttonCancelOrder_Click(object sender, EventArgs e)
+        {
+            Cancel cancelPesanan = new Cancel(pesanan.Konsumen, pesanan, "");
+            FormCancel frm = new FormCancel(cancelPesanan);
+            frm.Owner = this;
+            frm.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSelesaikanPesanan_Click(object sender, EventArgs e)
+        {
+            OrderRide.UpdateSelesai(pesanan);
+            MessageBox.Show("Pesanan telah selesai");
+            Driver.UangMasuk(pesanan.Tip, pesanan.Driver);
+            FormRatingDriver frm = new FormRatingDriver(pesanan);
+            frm.Owner = this;
+            frm.ShowDialog();
+        }
+    }
+}
