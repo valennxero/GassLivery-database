@@ -26,10 +26,11 @@ namespace backend_lib
         public DateTime TanggalPenarikan { get => tanggalPenarikan; set => tanggalPenarikan = value; }
         public Driver Driver { get => driver; set => driver = value; }
 
-        public static void TambahData(PenarikanDana pTarikDana)
+        public static void TarikDana(PenarikanDana pTarikDana)
         {
-            string perintah = "INSERT INTO PenarikanDana (Nominal, TanggalPenarikan, DriverId) " +
-                             "VALUES (" + pTarikDana.Nominal + ", '" + pTarikDana.TanggalPenarikan.ToString("yyyy-MM-dd") + "', " + pTarikDana.Driver.Id + ")";
+            string perintah = "INSERT INTO PenarikanDana (Nominal, Tanggal, DriverId) " +
+                             "VALUES (" + pTarikDana.Nominal + ", '" + pTarikDana.TanggalPenarikan.ToString("yyyy-MM-dd HH:mm:ss") + "', " + pTarikDana.Driver.Id + ");" +
+                             $"update driver set totalPendapatan = totalPendapatan - {pTarikDana.Nominal} where idDriver = {pTarikDana.Driver.Id};";
             Koneksi.JalankanQuery(perintah);
         }
     }

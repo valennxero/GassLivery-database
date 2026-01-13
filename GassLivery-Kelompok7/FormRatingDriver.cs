@@ -50,12 +50,30 @@ namespace GassLivery_Kelompok7
             MessageBox.Show("Terimakasih atas rating anda");
             this.Close();
             this.Owner.Close();
+            FormNotaGassRide formNota = new FormNotaGassRide(pesanan);
+            formNota.Owner = this;
+            formNota.ShowDialog();
         }
 
         private void FormRatingDriver_Load(object sender, EventArgs e)
         {
             labelNamaDriver.Text = pesanan.Driver.Nama;
 
+        }
+
+        private void buttonReport_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Anda yakin ingin melaporkan driver ini?","Report Driver", MessageBoxButtons.YesNo);
+            if(result == DialogResult.Yes)
+            {
+                Report.LaporkanDriver(pesanan);
+                MessageBox.Show("Driver telah dilaporkan. Terimakasih atas laporannya.");
+                this.Close();
+                this.Owner.Close();
+                FormNotaGassRide formNota = new FormNotaGassRide(pesanan);
+                formNota.Owner = this;
+                formNota.ShowDialog();
+            }
         }
     }
 }

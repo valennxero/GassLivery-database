@@ -32,6 +32,7 @@ namespace GassLivery_Kelompok7
 
         private void buttonCancelOrder_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             Cancel cancelPesanan = new Cancel(pesanan.Konsumen, pesanan, "");
             FormCancel frm = new FormCancel(cancelPesanan);
             frm.Owner = this;
@@ -45,6 +46,7 @@ namespace GassLivery_Kelompok7
 
         private void buttonSelesaikanPesanan_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             OrderRide.UpdateSelesai(pesanan);
             MessageBox.Show("Pesanan telah selesai");
             Driver.UangMasuk(pesanan.Tip, pesanan.Driver);

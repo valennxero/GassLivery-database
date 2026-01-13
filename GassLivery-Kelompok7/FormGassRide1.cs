@@ -101,6 +101,7 @@ namespace GassLivery_Kelompok7
 
                 else
                 {
+                    this.Visible = false;
                     if (biaya <= sisaSaldo && biaya > sisaPoin || biaya <= sisaSaldo && biaya <= sisaPoin)
                     {
                         MessageBox.Show("Pembayaran anda berhasil, saldo akan terpotong " + biaya);

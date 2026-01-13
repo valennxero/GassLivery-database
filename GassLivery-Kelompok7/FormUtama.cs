@@ -68,5 +68,22 @@ namespace GassLivery_Kelompok7
             labelSaldo.Text = userLogin.IdGassmon.Saldo.ToString();
             labelPoin.Text = userLogin.IdGassmon.Poin.ToString();
         }
+
+        private void topUpSaldoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormTopUp"];
+            if (form == null)
+            {
+                FormTopUp frm = new FormTopUp(userLogin);
+                frm.MdiParent = this;
+
+                frm.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
     }
 }

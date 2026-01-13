@@ -23,6 +23,7 @@ namespace GassLivery_Kelompok7
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+            this.Owner.Visible = true;
         }
 
         private void comboBoxAlasan_SelectedIndexChanged(object sender, EventArgs e)
@@ -46,7 +47,8 @@ namespace GassLivery_Kelompok7
                 {
                     cancel.Alasan = textBoxAlasan.Text;
                 }
-                
+                this.Visible = false;
+                this.Owner.Visible = false;
                 Cancel.CancelOrder(cancel);
 
                 //kembalikan dana ke user

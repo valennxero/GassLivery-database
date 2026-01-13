@@ -56,8 +56,20 @@ namespace GassLivery_Kelompok7
 
         private void buttonTarik_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Penarikan dana berhasil dengan nominal Rp " + newValue);
             //update ke database
+            if(DateTime.Now.DayOfWeek != DayOfWeek.Sunday)
+            {
+                PenarikanDana PenarikanDana = new PenarikanDana(0, (int)newValue, DateTime.Now, driverLogin);
+                PenarikanDana.TarikDana(PenarikanDana);
+                MessageBox.Show("Penarikan dana berhasil dengan nominal Rp " + newValue);
+                //update label pendapatan
+                driverLogin =  Driver.BacaData(driverLogin);
+                labelPendapatan.Text = driverLogin.TotalPendapatan.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Penarikan dana hanya dapat dilakukan pada hari Minggu");
+            }
         }
     }
 }

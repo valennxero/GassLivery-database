@@ -37,6 +37,14 @@
             this.labelSaldo = new System.Windows.Forms.Label();
             this.labelPoin = new System.Windows.Forms.Label();
             this.buttonRefresh = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.riwayatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gassRideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gassKanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gassSendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.topUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.topUpSaldoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonRide
@@ -65,7 +73,7 @@
             this.labelHomeMenu.BackColor = System.Drawing.Color.MediumBlue;
             this.labelHomeMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHomeMenu.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelHomeMenu.Location = new System.Drawing.Point(1, 15);
+            this.labelHomeMenu.Location = new System.Drawing.Point(1, 10);
             this.labelHomeMenu.Name = "labelHomeMenu";
             this.labelHomeMenu.Size = new System.Drawing.Size(356, 35);
             this.labelHomeMenu.TabIndex = 6;
@@ -129,11 +137,65 @@
             this.buttonRefresh.UseVisualStyleBackColor = true;
             this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.riwayatToolStripMenuItem,
+            this.topUpSaldoToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 341);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(390, 24);
+            this.menuStrip1.TabIndex = 16;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // riwayatToolStripMenuItem
+            // 
+            this.riwayatToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.topUpToolStripMenuItem,
+            this.gassSendToolStripMenuItem,
+            this.gassKanToolStripMenuItem,
+            this.gassRideToolStripMenuItem});
+            this.riwayatToolStripMenuItem.Name = "riwayatToolStripMenuItem";
+            this.riwayatToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.riwayatToolStripMenuItem.Text = "Riwayat";
+            // 
+            // gassRideToolStripMenuItem
+            // 
+            this.gassRideToolStripMenuItem.Name = "gassRideToolStripMenuItem";
+            this.gassRideToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gassRideToolStripMenuItem.Text = "Gass-Ride";
+            // 
+            // gassKanToolStripMenuItem
+            // 
+            this.gassKanToolStripMenuItem.Name = "gassKanToolStripMenuItem";
+            this.gassKanToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gassKanToolStripMenuItem.Text = "Gass-Kan";
+            // 
+            // gassSendToolStripMenuItem
+            // 
+            this.gassSendToolStripMenuItem.Name = "gassSendToolStripMenuItem";
+            this.gassSendToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gassSendToolStripMenuItem.Text = "Gass-Send";
+            // 
+            // topUpToolStripMenuItem
+            // 
+            this.topUpToolStripMenuItem.Name = "topUpToolStripMenuItem";
+            this.topUpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.topUpToolStripMenuItem.Text = "Top Up";
+            // 
+            // topUpSaldoToolStripMenuItem
+            // 
+            this.topUpSaldoToolStripMenuItem.Name = "topUpSaldoToolStripMenuItem";
+            this.topUpSaldoToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
+            this.topUpSaldoToolStripMenuItem.Text = "Top Up Saldo";
+            this.topUpSaldoToolStripMenuItem.Click += new System.EventHandler(this.topUpSaldoToolStripMenuItem_Click);
+            // 
             // FormUtama
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(356, 365);
+            this.ClientSize = new System.Drawing.Size(390, 365);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.labelPoin);
             this.Controls.Add(this.labelSaldo);
@@ -143,10 +205,13 @@
             this.Controls.Add(this.labelHomeMenu);
             this.Controls.Add(this.buttonGassKan);
             this.Controls.Add(this.buttonRide);
+            this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.Name = "FormUtama";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FormUtama_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,6 +228,13 @@
         private System.Windows.Forms.Label labelSaldo;
         private System.Windows.Forms.Label labelPoin;
         private System.Windows.Forms.Button buttonRefresh;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem riwayatToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem topUpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gassSendToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gassKanToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gassRideToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem topUpSaldoToolStripMenuItem;
     }
 }
 
