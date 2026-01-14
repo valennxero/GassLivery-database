@@ -102,20 +102,43 @@ namespace GassLivery_Kelompok7
                 else
                 {
                     this.Visible = false;
-                    if (biaya <= sisaSaldo && biaya > sisaPoin || biaya <= sisaSaldo && biaya <= sisaPoin)
+                    if (checkBoxPoin.Checked == true)
                     {
-                        MessageBox.Show("Pembayaran anda berhasil, saldo akan terpotong " + biaya);
-                        Gassmon.BayarPakaiSaldo(biaya, frm.userLogin);
+                        //logic pakai poin, kurangi biaya sesuai poin yang ada dengan kelipatan 5000
+                        int maxPotongan =biaya - ( biaya % 5000);
+                        int poinTersedia = sisaPoin - (sisaPoin % 5000);
+                        int poinDipakai = Math.Min(maxPotongan, poinTersedia);
+                        if (poinDipakai < 5000)
+                        {
+                            poinDipakai = 0;
+                        }
+
+                        if ((biaya-poinDipakai) <= sisaSaldo)
+                        {
+                            //Bayar
+                            MessageBox.Show("Pembayaran anda berhasil, poin akan terpotong " + biaya);
+                            //kurangi poin pada database
+                            Gassmon.BayarPakaiPoin(poinDipakai, frm.userLogin);
+                            //kurangi saldo pada database
+                            Gassmon.BayarPakaiSaldo(biaya-poinDipakai, frm.userLogin);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Pembayaran anda berhasil, poin akan terpotong " + biaya);
-                        Gassmon.BayarPakaiPoin(biaya, frm.userLogin);
+                        if (biaya <= sisaSaldo && biaya > sisaPoin || biaya <= sisaSaldo && biaya <= sisaPoin)
+                        {
+                            MessageBox.Show("Pembayaran anda berhasil, saldo akan terpotong " + biaya);
+                            Gassmon.BayarPakaiSaldo(biaya, frm.userLogin);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Pembayaran anda berhasil, poin akan terpotong " + biaya);
+                            Gassmon.BayarPakaiPoin(biaya, frm.userLogin);
+                        }
                     }
-
                     //buat pesanan
-                    int biayaTransaksi = int.Parse(labelHarga.Text);
-                    double tip = biayaTransaksi * 0.2;
+                    //nt biayaTransaksi = int.Parse(labelHarga.Text);
+                    double tip = biaya * 0.2;
                     User konsumen = frm.userLogin;
                     Driver newDriver = Driver.PanggilDriver(reqWanita, reqMotorBaru);
 
@@ -133,7 +156,7 @@ namespace GassLivery_Kelompok7
                     }
 
                     OrderRide pesanan = OrderRide.BuatPesanan(tip, konsumen, newDriver, waktuOrder, jarakLokasi, reqWanita,
-                        reqMotorBaru, jamOrder, biayaTransaksi);
+                        reqMotorBaru, jamOrder, biaya);
                     FormGassRideKonfirmasi frmKonfirmasi = new FormGassRideKonfirmasi(pesanan);
                     frmKonfirmasi.ShowDialog();
 

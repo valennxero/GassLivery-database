@@ -28,5 +28,19 @@ namespace backend_lib
                 $"update `gass-mon` set saldo = saldo + {pNominal} where id = {pUser.IdGassmon.Id}; ";
             Koneksi.JalankanQuery(perintah);
         }
+
+        public static List<TopUp> BacaData(User pUser)
+        {
+            string perintah = $"Select * from topup where konsumenId = {pUser.Id};";
+            MySql.Data.MySqlClient.MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
+            List<TopUp> ListData = new List<TopUp>();
+            while (hasil.Read())
+            {
+                Gassmon gassmon = Gassmon.BacaData(pUser);
+                TopUp t = new TopUp(hasil.GetDateTime("tanggal"), hasil.GetInt32("nominal"), gassmon);
+                ListData.Add(t);
+            }
+            return ListData;
+        }
     }
 }

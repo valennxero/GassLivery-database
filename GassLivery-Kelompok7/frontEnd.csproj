@@ -86,6 +86,12 @@
     <Compile Include="FormGassSend.Designer.cs">
       <DependentUpon>FormGassSend.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormHistoryTopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHistoryTopUp.Designer.cs">
+      <DependentUpon>FormHistoryTopUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormGassSend.resx">
       <DependentUpon>FormGassSend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHistoryTopUp.resx">
+      <DependentUpon>FormHistoryTopUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

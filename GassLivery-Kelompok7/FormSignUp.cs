@@ -30,6 +30,7 @@ namespace GassLivery_Kelompok7
 
                 User.CreateUser(username, password, nameUser, genderUser, noHPUser);
                 MessageBox.Show("Akun berhasil dibuat");
+                this.Close();
             }catch(Exception ex)
             {
                 MessageBox.Show("Akun gagal dibuat. " + ex.Message);

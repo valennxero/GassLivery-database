@@ -50,6 +50,11 @@
             // numericUpDownNominal
             // 
             this.numericUpDownNominal.Location = new System.Drawing.Point(76, 120);
+            this.numericUpDownNominal.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
             this.numericUpDownNominal.Name = "numericUpDownNominal";
             this.numericUpDownNominal.Size = new System.Drawing.Size(134, 20);
             this.numericUpDownNominal.TabIndex = 1;

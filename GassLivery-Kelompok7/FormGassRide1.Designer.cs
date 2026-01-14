@@ -42,10 +42,11 @@
             this.labelHarga = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBoxPesan = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.dateTimePickerJam = new System.Windows.Forms.DateTimePicker();
             this.radioButtonPesanNanti = new System.Windows.Forms.RadioButton();
             this.radioButtonSekarang = new System.Windows.Forms.RadioButton();
-            this.label5 = new System.Windows.Forms.Label();
+            this.checkBoxPoin = new System.Windows.Forms.CheckBox();
             this.groupBoxPesan.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,7 +84,7 @@
             // 
             // buttonPesan
             // 
-            this.buttonPesan.Location = new System.Drawing.Point(81, 500);
+            this.buttonPesan.Location = new System.Drawing.Point(155, 500);
             this.buttonPesan.Name = "buttonPesan";
             this.buttonPesan.Size = new System.Drawing.Size(142, 23);
             this.buttonPesan.TabIndex = 5;
@@ -193,6 +194,15 @@
             this.groupBoxPesan.TabStop = false;
             this.groupBoxPesan.Text = "groupBox1";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(175, 69);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Ketik Jam-Menit";
+            // 
             // dateTimePickerJam
             // 
             this.dateTimePickerJam.CustomFormat = "HH : mm";
@@ -227,20 +237,22 @@
             this.radioButtonSekarang.UseVisualStyleBackColor = true;
             this.radioButtonSekarang.CheckedChanged += new System.EventHandler(this.radioButtonSekarang_CheckedChanged);
             // 
-            // label5
+            // checkBoxPoin
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(175, 69);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 13);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Ketik Jam-Menit";
+            this.checkBoxPoin.AutoSize = true;
+            this.checkBoxPoin.Location = new System.Drawing.Point(29, 506);
+            this.checkBoxPoin.Name = "checkBoxPoin";
+            this.checkBoxPoin.Size = new System.Drawing.Size(94, 17);
+            this.checkBoxPoin.TabIndex = 29;
+            this.checkBoxPoin.Text = "Gunakan Poin";
+            this.checkBoxPoin.UseVisualStyleBackColor = true;
             // 
             // FormGassRide1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 535);
+            this.ClientSize = new System.Drawing.Size(403, 535);
+            this.Controls.Add(this.checkBoxPoin);
             this.Controls.Add(this.groupBoxPesan);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.labelHarga);
@@ -283,5 +295,6 @@
         private System.Windows.Forms.RadioButton radioButtonPesanNanti;
         private System.Windows.Forms.RadioButton radioButtonSekarang;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox checkBoxPoin;
     }
 }

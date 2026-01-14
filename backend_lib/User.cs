@@ -100,13 +100,15 @@ namespace backend_lib
                 return null;
             }
         }
-
         public static void CreateUser(string username, string pwd, string name, string gender, string noHP)
         {
-            string perintah = "insert into `gass-mon` (poin, saldo) values (0,0);\n"+
-                " insert into konsumen (nama, gender, username, password, nomorHP, idGassmon) " +
-                " values ('" + name + "','" + gender + "','" + username + "','" + pwd + "','" + noHP + "',last_insert_id());";
+            string perintah =
+                "INSERT INTO `gass-mon` (poin, saldo) VALUES (0, 0); " +
+                "INSERT INTO konsumen (nama, gender, username, password, nomorHP, idGassmon) " +
+                "VALUES ('" + name + "', '" + gender + "', '" + username + "', '" + pwd + "', '" + noHP + "', LAST_INSERT_ID());";
+
             Koneksi.JalankanQuery(perintah);
         }
+
     }
 }

@@ -31,26 +31,20 @@ namespace backend_lib
         public int Saldo { get => saldo; set => saldo = value; }
         public int Poin { get => poin; set => poin = value; }
 
-        public static List<Gassmon> BacaData(string filter, string nilai)
+
+        public static Gassmon BacaData(User pUser)
         {
-            string perintah;
-            if (filter == "")
+            string perintah = $"Select * from `gass-mon` where id = {pUser.Id}; ";
+            MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
+            if (hasil.Read())
             {
-                perintah = "Select * from `gass-mon`; ";
+                Gassmon g = new Gassmon(hasil.GetInt32(0), hasil.GetInt32(1), hasil.GetInt32(2));
+                return g;
             }
             else
             {
-                perintah = "Select * from `gass-mon`" +
-                   " where " + filter + " like '%" + nilai + "%'";
+                return null;
             }
-            MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
-            List<Gassmon> ListData = new List<Gassmon>();
-            while (hasil.Read())
-            {
-                Gassmon g = new Gassmon(hasil.GetInt32(0), hasil.GetInt32(1), hasil.GetInt32(2));
-                ListData.Add(g);
-            }
-            return ListData;
         }
         public static void BayarPakaiSaldo(int harga, User akun)
         {
@@ -74,6 +68,13 @@ namespace backend_lib
             {
                 akun.IdGassmon.Poin = akun.IdGassmon.Poin - harga;
             }
+        }
+
+        public static void TambahPoin(int poin, User akun)
+        {
+            string perintah = "update `gass-mon` set poin = poin + " + poin +
+                " where id = " + akun.IdGassmon.Id;
+            MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
         }
 
     }

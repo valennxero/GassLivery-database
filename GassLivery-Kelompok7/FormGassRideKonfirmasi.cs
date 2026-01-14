@@ -46,6 +46,10 @@ namespace GassLivery_Kelompok7
 
         private void buttonSelesaikanPesanan_Click(object sender, EventArgs e)
         {
+            //tambahkan poin ke gassmon user
+            int poin = (int)((pesanan.TotalTransaksi / 1000) * 10);
+            Gassmon.TambahPoin(poin, pesanan.Konsumen);
+
             this.Visible = false;
             OrderRide.UpdateSelesai(pesanan);
             MessageBox.Show("Pesanan telah selesai");

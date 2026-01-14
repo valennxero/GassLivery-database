@@ -85,5 +85,12 @@ namespace GassLivery_Kelompok7
                 form.BringToFront();
             }
         }
+
+        private void topUpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormHistoryTopUp frm = new FormHistoryTopUp(userLogin);
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

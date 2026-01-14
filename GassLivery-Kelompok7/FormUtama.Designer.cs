@@ -39,10 +39,10 @@
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.riwayatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gassRideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gassKanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gassSendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gassSendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gassKanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gassRideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topUpSaldoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -160,17 +160,12 @@
             this.riwayatToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.riwayatToolStripMenuItem.Text = "Riwayat";
             // 
-            // gassRideToolStripMenuItem
+            // topUpToolStripMenuItem
             // 
-            this.gassRideToolStripMenuItem.Name = "gassRideToolStripMenuItem";
-            this.gassRideToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.gassRideToolStripMenuItem.Text = "Gass-Ride";
-            // 
-            // gassKanToolStripMenuItem
-            // 
-            this.gassKanToolStripMenuItem.Name = "gassKanToolStripMenuItem";
-            this.gassKanToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.gassKanToolStripMenuItem.Text = "Gass-Kan";
+            this.topUpToolStripMenuItem.Name = "topUpToolStripMenuItem";
+            this.topUpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.topUpToolStripMenuItem.Text = "Top Up";
+            this.topUpToolStripMenuItem.Click += new System.EventHandler(this.topUpToolStripMenuItem_Click);
             // 
             // gassSendToolStripMenuItem
             // 
@@ -178,11 +173,17 @@
             this.gassSendToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gassSendToolStripMenuItem.Text = "Gass-Send";
             // 
-            // topUpToolStripMenuItem
+            // gassKanToolStripMenuItem
             // 
-            this.topUpToolStripMenuItem.Name = "topUpToolStripMenuItem";
-            this.topUpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.topUpToolStripMenuItem.Text = "Top Up";
+            this.gassKanToolStripMenuItem.Name = "gassKanToolStripMenuItem";
+            this.gassKanToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gassKanToolStripMenuItem.Text = "Gass-Kan";
+            // 
+            // gassRideToolStripMenuItem
+            // 
+            this.gassRideToolStripMenuItem.Name = "gassRideToolStripMenuItem";
+            this.gassRideToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gassRideToolStripMenuItem.Text = "Gass-Ride";
             // 
             // topUpSaldoToolStripMenuItem
             // 
