@@ -27,6 +27,7 @@ namespace GassLivery_Kelompok7
         private void FormPilihMenu_Load(object sender, EventArgs e)
         {
             labelNamaTenant.Text = tenantPilihan.NamaTenant;
+            labelLokasi.Text = $" Lokasi: {tenantPilihan.LokasiTenant.Nama}";
             //tentukan harga ongkir
             Waktu waktu = Waktu.BacaDataGassKan(DateTime.Now.Hour);
             int biayaPerKm = waktu.Harga;

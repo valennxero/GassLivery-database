@@ -52,6 +52,7 @@
             this.labelOngkir = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.labelTotal = new System.Windows.Forms.Label();
+            this.labelLokasi = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -61,6 +62,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel1.Controls.Add(this.labelLokasi);
             this.panel1.Controls.Add(this.labelNamaTenant);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Location = new System.Drawing.Point(8, 3);
@@ -266,6 +268,17 @@
             this.labelTotal.TabIndex = 16;
             this.labelTotal.Text = "000";
             // 
+            // labelLokasi
+            // 
+            this.labelLokasi.AutoSize = true;
+            this.labelLokasi.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLokasi.Location = new System.Drawing.Point(358, 19);
+            this.labelLokasi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelLokasi.Name = "labelLokasi";
+            this.labelLokasi.Size = new System.Drawing.Size(177, 31);
+            this.labelLokasi.TabIndex = 8;
+            this.labelLokasi.Text = "(lokasi tenan)";
+            // 
             // FormPilihMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -323,5 +336,6 @@
         private System.Windows.Forms.Label labelOngkir;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label labelTotal;
+        private System.Windows.Forms.Label labelLokasi;
     }
 }

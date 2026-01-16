@@ -87,5 +87,49 @@ namespace backend_lib
             string perintah = $"update orderFood set statusSelesai = 1 where idOrderFood = {order.Id};";
             Koneksi.JalankanQuery(perintah);
         }
+
+        public static List<OrderFood> BacaData(User pUser, int pId)
+        {
+            string perintah = "";
+            if (pId == 0)
+            {
+                perintah = $"select * from orderFood where konsumenId = {pUser.Id};";
+            }
+            if(pUser is null)
+            {
+                perintah = $"select * from orderFood where idOrderFood = {pId};";
+            }
+            MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
+
+            List<OrderFood> listOrder = new List<OrderFood>();
+            while (hasil.Read())
+            {
+                Driver driver = Driver.BacaData(hasil.GetInt32("driverId"));
+                Waktu waktu = Waktu.BacaDataWaktu(hasil.GetInt32("waktuId"));
+                Jarak jarak = Jarak.BacaDataJarak(hasil.GetInt32("jarakId"));
+                Tenant tenant = Tenant.BacaData("idTenant", hasil.GetInt32("tenantId").ToString())[0];
+
+                List<FoodDetail> listFd = FoodDetail.BacaData(hasil.GetInt32("idOrderFood"));
+                OrderFood order = new OrderFood(
+                    hasil.GetInt32("idOrderFood"),//Id = id;
+                    hasil.GetDateTime("tanggalOrder"),//TanggalOrder = tanggalOrder;
+                    hasil.GetInt32("ongkir"),//Ongkir = ongkir;
+                    hasil.GetDouble("tips"),//Tip = tip;
+                    driver,//Driver = driver;
+                    pUser,//Konsumen = konsumen;
+                    waktu,//Waktu = waktu;
+                    jarak,//Jarak = jarak;
+                    hasil.GetBoolean("statusSelesai"),//StatusSelesai = statusSelesai;
+                    listFd,//ListDetail = foodDetails;
+                    hasil.GetInt32("totalBiaya"),//TotalBiaya = pBiaya;
+                    tenant
+                    );
+                listOrder.Add(order);
+            }
+
+            hasil.Close();
+            return listOrder;
+        }
+
     }
 }

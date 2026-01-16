@@ -96,128 +96,56 @@ namespace backend_lib
             string perintah = $"update `gass-mon` set saldo = saldo + {nilai} where id = {user.IdGassmon.Id}; ";
             Koneksi.JalankanQuery(perintah);
         }
-
-        public static List<OrderRide> BacaData(User pUser)
+        public static List<OrderRide> BacaData(User pUser, int pId)
         {
-            string perintah = $"select * from orderRide where konsumenId = {pUser.Id};";
+            string perintah = "";
+            if (pId == 0)
+            {
+                perintah = $"SELECT * FROM orderRide WHERE konsumenId = {pUser.Id};";
+            }
+            if(pUser is null)
+            {
+                perintah = $"SELECT * FROM orderRide WHERE idOrderRide = {pId};";
+            }
             MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
 
             List<OrderRide> listOrder = new List<OrderRide>();
 
-            // TEMPORARY STORAGE
-            List<(int idOrder, double tips, int driverId, int waktuId, int jarakId,
-                  bool reqWanita, bool reqMotorBaru, DateTime postOrder,
-                  bool statusSelesai, int totalTransaksi, DateTime tanggalOrder)> temp
-                = new List<(int, double, int, int, int, bool, bool, DateTime, bool, int, DateTime)>();
-
             while (hasil.Read())
             {
-                temp.Add((
-                    hasil.GetInt32("idOrderRide"),
-                    hasil.GetDouble("tips"),
-                    hasil.GetInt32("driverId"),
-                    hasil.GetInt32("waktuId"),
-                    hasil.GetInt32("jarakId"),
-                    hasil.GetBoolean("reqWanita"),
-                    hasil.GetBoolean("reqMotorBaru"),
-                    hasil.GetDateTime("postOrder"),
-                    hasil.GetBoolean("statusSelesai"),
-                    hasil.GetInt32("totalTransaksi"),
-                    hasil.GetDateTime("tanggalOrder")
-                ));
-            }
+                int idOrder = hasil.GetInt32("idOrderRide");
+                double tips = hasil.GetDouble("tips");
+                int driverId = hasil.GetInt32("driverId");
+                int waktuId = hasil.GetInt32("waktuId");
+                int jarakId = hasil.GetInt32("jarakId");
+                bool reqWanita = hasil.GetBoolean("reqWanita");
+                bool reqMotorBaru = hasil.GetBoolean("reqMotorBaru");
+                DateTime postOrder = hasil.GetDateTime("postOrder");
+                bool statusSelesai = hasil.GetBoolean("statusSelesai");
+                int totalTransaksi = hasil.GetInt32("totalTransaksi");
+                DateTime tanggalOrder = hasil.GetDateTime("tanggalOrder");
 
-            hasil.Close();
-
-            foreach (var t in temp)
-            {
                 OrderRide o = new OrderRide(
-                    t.idOrder,
-                    t.tips,
+                    idOrder,
+                    tips,
                     pUser,
-                    Driver.BacaData(t.driverId),
-                    Waktu.BacaDataWaktu(t.waktuId),
-                    Jarak.BacaDataJarak(t.jarakId),
-                    t.reqWanita,
-                    t.reqMotorBaru,
-                    t.postOrder,
-                    t.statusSelesai,
-                    t.totalTransaksi
+                    Driver.BacaData(driverId),
+                    Waktu.BacaDataWaktu(waktuId),
+                    Jarak.BacaDataJarak(jarakId),
+                    reqWanita,
+                    reqMotorBaru,
+                    postOrder,
+                    statusSelesai,
+                    totalTransaksi
                 );
-                o.TanggalOrder = t.tanggalOrder;
+
+                o.TanggalOrder = tanggalOrder;
                 listOrder.Add(o);
             }
 
+            hasil.Close();
             return listOrder;
         }
-        public static OrderRide BacaDataById(int pId)
-        {
-            string sql = $"select * from orderride where idOrderRide = {pId}";
-            MySqlDataReader dr = Koneksi.JalankanPerintahSelect(sql);
 
-            // Variabel penampung data mentah
-            int idOrder = 0;
-            double tips = 0;
-            int konsumenId = 0;
-            int driverId = 0;
-            int waktuId = 0;
-            int jarakId = 0;
-            bool reqWanita = false;
-            bool reqMotorBaru = false;
-            DateTime postOrder = DateTime.MinValue;
-            bool statusSelesai = false;
-            int totalTransaksi = 0;
-            DateTime tanggalOrder = DateTime.MinValue;
-
-            bool adaData = false;
-
-            if (dr.Read())
-            {
-                adaData = true;
-
-                idOrder = dr.GetInt32("idOrderRide");
-                tips = dr.GetDouble("tips");
-                konsumenId = dr.GetInt32("konsumenId");
-                driverId = dr.GetInt32("driverId");
-                waktuId = dr.GetInt32("waktuId");
-                jarakId = dr.GetInt32("jarakId");
-                reqWanita = dr.GetBoolean("reqWanita");
-                reqMotorBaru = dr.GetBoolean("reqMotorBaru");
-                postOrder = dr.GetDateTime("postOrder");
-                statusSelesai = dr.GetBoolean("statusSelesai");
-                totalTransaksi = dr.GetInt32("totalTransaksi");
-                tanggalOrder = dr.GetDateTime("tanggalOrder");
-            }
-
-            // 🔥 WAJIB: tutup reader SEBELUM query lain
-            dr.Close();
-
-            if (!adaData)
-                return null;
-
-            // Baru aman panggil method BacaData lain
-            User konsumen = User.BacaData(konsumenId);
-            Driver driver = Driver.BacaData(driverId);
-            Waktu waktu = Waktu.BacaDataWaktu(waktuId);
-            Jarak jarak = Jarak.BacaDataJarak(jarakId);
-
-            OrderRide order = new OrderRide(
-                idOrder,
-                tips,
-                konsumen,
-                driver,
-                waktu,
-                jarak,
-                reqWanita,
-                reqMotorBaru,
-                postOrder,
-                statusSelesai,
-                totalTransaksi
-            );
-
-            order.TanggalOrder = tanggalOrder;
-
-            return order;
-        }
     }
 }

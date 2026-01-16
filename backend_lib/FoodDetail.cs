@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace backend_lib
 {
     public class FoodDetail
-    {
+    {        
         private int harga;
         private int jumlah;
         private MenuTenant menu;
@@ -42,6 +42,24 @@ namespace backend_lib
                     $" values ({hargaDetail},{jumlahDetail},{pOrder.Id}, {menuId});";
                 Koneksi.JalankanQuery(perintah);
             }
+        }
+
+        public static List<FoodDetail> BacaData(int pOrderId)
+        {
+            string perintah = $"select * from notaFoodDetail where orderFoodId = {pOrderId};";
+            MySql.Data.MySqlClient.MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
+            List<FoodDetail> listFd = new List<FoodDetail>();
+            while (hasil.Read())
+            {
+                MenuTenant menu = MenuTenant.BacaDataMenu("idMenu", hasil.GetInt32("menuId").ToString())[0];
+                FoodDetail fd = new FoodDetail(
+                    hasil.GetInt32("harga"),
+                    hasil.GetInt32("jumlah"),
+                    menu
+                    );
+                listFd.Add(fd);
+            }
+            return listFd;
         }
     }
 

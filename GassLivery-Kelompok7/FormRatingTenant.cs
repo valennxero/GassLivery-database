@@ -54,6 +54,8 @@ namespace GassLivery_Kelompok7
             MessageBox.Show("Terimakasih atas rating anda");
             this.Close();
             this.Owner.Close();
+            FormNotaGassKan frm = new FormNotaGassKan(pesanan);
+            frm.ShowDialog();
         }
     }
 }

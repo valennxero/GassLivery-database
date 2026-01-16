@@ -41,6 +41,10 @@ namespace backend_lib
             {
                 perintah = "Select * from tenant; ";
             }
+            else if (filter == "idTenant")
+            {
+                perintah = "SELECT * FROM tenant WHERE idTenant = " + nilai;
+            }
             else
             {
                 perintah = "Select * from tenant" +

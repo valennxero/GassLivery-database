@@ -195,6 +195,7 @@ namespace backend_lib
                 d.Username = hasil.GetValue(10).ToString();
                 d.Password = hasil.GetValue(11).ToString();
                 d.Motor = m;
+                hasil.Close();
                 return d;
             }
             else

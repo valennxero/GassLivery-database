@@ -45,6 +45,7 @@ namespace backend_lib
                 m.Nama = hasil.GetValue(1).ToString();
                 m.Usia = hasil.GetInt32(2);
                 m.PlatNomor = hasil.GetValue(4).ToString();
+                hasil.Close();
                 return m;
             }
             else

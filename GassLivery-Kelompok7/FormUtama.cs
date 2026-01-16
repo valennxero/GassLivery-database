@@ -109,7 +109,9 @@ namespace GassLivery_Kelompok7
 
         private void gassKanToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FormHistoryFood frm = new FormHistoryFood(userLogin);
+            frm.MdiParent = this;
+            frm.Show();
         }
     }
 }

@@ -33,10 +33,10 @@ namespace GassLivery_Kelompok7
             FormUtama frm = (FormUtama)this.MdiParent;
 
             //tentukan jarak
-            Lokasi awal = Lokasi.BacaData("nama", comboBoxAlamat.Text)[0];
-            string tujuan = comboBoxTenant.Text;
-            Tenant tenantTujuan = Tenant.BacaData("nama", tujuan)[0];           
-            Lokasi akhir = Lokasi.BacaData("nama", tenantTujuan.LokasiTenant.Nama)[0];
+            Lokasi akhir = Lokasi.BacaData("nama", comboBoxAlamat.Text)[0];
+            string namaTenan = comboBoxTenant.Text;
+            Tenant tenantTujuan = Tenant.BacaData("nama", namaTenan)[0];           
+            Lokasi awal = Lokasi.BacaData("nama", tenantTujuan.LokasiTenant.Nama)[0];
             Jarak j = Jarak.BacaData(awal, akhir)[0];
 
             string namaTenant = comboBoxTenant.Text;

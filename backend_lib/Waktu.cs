@@ -61,6 +61,7 @@ namespace backend_lib
                 w.JamAwal = hasil.GetInt32(1);
                 w.harga = hasil.GetInt32(2);
                 w.JamAkhir = hasil.GetInt32(3);
+                hasil.Close();
                 return w;
             }
             else return null;
