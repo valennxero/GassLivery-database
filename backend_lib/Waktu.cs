@@ -35,7 +35,7 @@ namespace backend_lib
 
         public static List<Waktu> BacaData(int dt)
         {
-            string perintah = "select * from waktu where " + dt + " between jamAwal and jamAkhir";
+            string perintah = "select * from waktu where " + dt + " between jamAwal and jamAkhir and kategori = 'gassride';";
             MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
             List<Waktu> ListData = new List<Waktu>();
             while (hasil.Read() == true)
@@ -48,6 +48,41 @@ namespace backend_lib
                 ListData.Add(w);
             }
             return ListData;
+        }
+
+        public static Waktu BacaDataWaktu(int pId)
+        {
+            string perintah = $"select * from waktu where idWaktu = {pId};";
+            MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
+            if (hasil.Read() == true)
+            {
+                Waktu w = new Waktu();
+                w.Id = hasil.GetInt32(0);
+                w.JamAwal = hasil.GetInt32(1);
+                w.harga = hasil.GetInt32(2);
+                w.JamAkhir = hasil.GetInt32(3);
+                return w;
+            }
+            else return null;
+        }
+
+        public static Waktu BacaDataGassKan(int dt)
+        {
+            string perintah = "select * from waktu where " + dt + " between jamAwal and jamAkhir and kategori = 'gasskan';";
+            MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
+            if (hasil.Read() == true)
+            {
+                Waktu w = new Waktu();
+                w.Id = hasil.GetInt32(0);
+                w.JamAwal = hasil.GetInt32(1);
+                w.harga = hasil.GetInt32(2);
+                w.JamAkhir = hasil.GetInt32(3);
+                return w;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 

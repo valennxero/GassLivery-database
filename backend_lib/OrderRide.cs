@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +22,7 @@ namespace backend_lib
         private DateTime jadwalOrder;
         private bool statusSelesai;
         private int totalTransaksi;
-
+        
         public OrderRide(int id, double tip, User konsumen, Driver driver, Waktu waktu, Jarak jarak, bool reqWanita, bool reqMotorBaru, DateTime jadwalOrder, bool statusSelesai, int totalTransaksi)
         {
             this.Id =id;
@@ -94,6 +95,129 @@ namespace backend_lib
         {
             string perintah = $"update `gass-mon` set saldo = saldo + {nilai} where id = {user.IdGassmon.Id}; ";
             Koneksi.JalankanQuery(perintah);
+        }
+
+        public static List<OrderRide> BacaData(User pUser)
+        {
+            string perintah = $"select * from orderRide where konsumenId = {pUser.Id};";
+            MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
+
+            List<OrderRide> listOrder = new List<OrderRide>();
+
+            // TEMPORARY STORAGE
+            List<(int idOrder, double tips, int driverId, int waktuId, int jarakId,
+                  bool reqWanita, bool reqMotorBaru, DateTime postOrder,
+                  bool statusSelesai, int totalTransaksi, DateTime tanggalOrder)> temp
+                = new List<(int, double, int, int, int, bool, bool, DateTime, bool, int, DateTime)>();
+
+            while (hasil.Read())
+            {
+                temp.Add((
+                    hasil.GetInt32("idOrderRide"),
+                    hasil.GetDouble("tips"),
+                    hasil.GetInt32("driverId"),
+                    hasil.GetInt32("waktuId"),
+                    hasil.GetInt32("jarakId"),
+                    hasil.GetBoolean("reqWanita"),
+                    hasil.GetBoolean("reqMotorBaru"),
+                    hasil.GetDateTime("postOrder"),
+                    hasil.GetBoolean("statusSelesai"),
+                    hasil.GetInt32("totalTransaksi"),
+                    hasil.GetDateTime("tanggalOrder")
+                ));
+            }
+
+            hasil.Close();
+
+            foreach (var t in temp)
+            {
+                OrderRide o = new OrderRide(
+                    t.idOrder,
+                    t.tips,
+                    pUser,
+                    Driver.BacaData(t.driverId),
+                    Waktu.BacaDataWaktu(t.waktuId),
+                    Jarak.BacaDataJarak(t.jarakId),
+                    t.reqWanita,
+                    t.reqMotorBaru,
+                    t.postOrder,
+                    t.statusSelesai,
+                    t.totalTransaksi
+                );
+                o.TanggalOrder = t.tanggalOrder;
+                listOrder.Add(o);
+            }
+
+            return listOrder;
+        }
+        public static OrderRide BacaDataById(int pId)
+        {
+            string sql = $"select * from orderride where idOrderRide = {pId}";
+            MySqlDataReader dr = Koneksi.JalankanPerintahSelect(sql);
+
+            // Variabel penampung data mentah
+            int idOrder = 0;
+            double tips = 0;
+            int konsumenId = 0;
+            int driverId = 0;
+            int waktuId = 0;
+            int jarakId = 0;
+            bool reqWanita = false;
+            bool reqMotorBaru = false;
+            DateTime postOrder = DateTime.MinValue;
+            bool statusSelesai = false;
+            int totalTransaksi = 0;
+            DateTime tanggalOrder = DateTime.MinValue;
+
+            bool adaData = false;
+
+            if (dr.Read())
+            {
+                adaData = true;
+
+                idOrder = dr.GetInt32("idOrderRide");
+                tips = dr.GetDouble("tips");
+                konsumenId = dr.GetInt32("konsumenId");
+                driverId = dr.GetInt32("driverId");
+                waktuId = dr.GetInt32("waktuId");
+                jarakId = dr.GetInt32("jarakId");
+                reqWanita = dr.GetBoolean("reqWanita");
+                reqMotorBaru = dr.GetBoolean("reqMotorBaru");
+                postOrder = dr.GetDateTime("postOrder");
+                statusSelesai = dr.GetBoolean("statusSelesai");
+                totalTransaksi = dr.GetInt32("totalTransaksi");
+                tanggalOrder = dr.GetDateTime("tanggalOrder");
+            }
+
+            // 🔥 WAJIB: tutup reader SEBELUM query lain
+            dr.Close();
+
+            if (!adaData)
+                return null;
+
+            // Baru aman panggil method BacaData lain
+            User konsumen = User.BacaData(konsumenId);
+            Driver driver = Driver.BacaData(driverId);
+            Waktu waktu = Waktu.BacaDataWaktu(waktuId);
+            Jarak jarak = Jarak.BacaDataJarak(jarakId);
+
+            OrderRide order = new OrderRide(
+                idOrder,
+                tips,
+                konsumen,
+                driver,
+                waktu,
+                jarak,
+                reqWanita,
+                reqMotorBaru,
+                postOrder,
+                statusSelesai,
+                totalTransaksi
+            );
+
+            order.TanggalOrder = tanggalOrder;
+
+            return order;
         }
     }
 }

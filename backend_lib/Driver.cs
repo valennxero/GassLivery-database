@@ -139,7 +139,38 @@ namespace backend_lib
                 return null;
             }
         }
-
+        public static Driver BacaData(int pId)
+        {
+            string perintah = "select m.idMotor, m.nama, m.usia, m.platNomor, d.idDriver, d.nama, d.gender, d.ratingTotal, d.statusAktif, d.totalPendapatan," +
+                "d.username, d.password " +
+                "from driver d join motor m on d.motorId = m.idMotor" +
+                " where d.IdDriver =" + pId;
+            MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
+            if (hasil.Read())
+            {
+                Motor m = new Motor();
+                m.Id = hasil.GetInt32(0);
+                m.Nama = hasil.GetValue(1).ToString();
+                m.Usia = hasil.GetDouble(2);
+                m.PlatNomor = hasil.GetValue(3).ToString();
+                Driver d = new Driver();
+                d.Id = hasil.GetInt32(4);
+                d.Nama = hasil.GetValue(5).ToString();
+                d.Gender = hasil.GetValue(6).ToString();
+                d.Rating = hasil.GetDouble(7);
+                d.StatusAktif = hasil.GetBoolean(8);
+                d.TotalPendapatan = hasil.GetInt32(9);
+                d.Username = hasil.GetValue(10).ToString();
+                d.Password = hasil.GetValue(11).ToString();
+                d.Motor = m;
+                hasil.Close();
+                return d;
+            }
+            else
+            {
+                return null;
+            }
+        }
         public static Driver BacaData(Driver driver)
         {
             string perintah = "select m.idMotor, m.nama, m.usia, m.platNomor, d.idDriver, d.nama, d.gender, d.ratingTotal, d.statusAktif, d.totalPendapatan," +

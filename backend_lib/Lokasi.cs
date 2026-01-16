@@ -44,6 +44,19 @@ namespace backend_lib
             }
             return ListData;
         }
+
+        public static Lokasi BacaDataLokasi(int pId)
+        {
+            string perintah = $"select * from lokasi where idLokasi = {pId};";
+            MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
+            if (hasil.Read() == true)
+            {
+                Lokasi l = new Lokasi(hasil.GetInt32(0), hasil.GetValue(1).ToString());
+                hasil.Close();
+                return l;
+            }
+            else return null;
+        }
         public override string ToString()
         {
             return Nama;

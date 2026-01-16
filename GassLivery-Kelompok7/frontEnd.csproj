@@ -86,6 +86,12 @@
     <Compile Include="FormGassSend.Designer.cs">
       <DependentUpon>FormGassSend.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormHistoryRide.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHistoryRide.Designer.cs">
+      <DependentUpon>FormHistoryRide.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormHistoryTopUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,12 @@
     </Compile>
     <Compile Include="FormNotaGassRide.Designer.cs">
       <DependentUpon>FormNotaGassRide.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPilihMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPilihMenu.Designer.cs">
+      <DependentUpon>FormPilihMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="FormRatingDriver.cs">
       <SubType>Form</SubType>
@@ -153,6 +165,9 @@
     <EmbeddedResource Include="FormGassSend.resx">
       <DependentUpon>FormGassSend.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormHistoryRide.resx">
+      <DependentUpon>FormHistoryRide.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormHistoryTopUp.resx">
       <DependentUpon>FormHistoryTopUp.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNotaGassRide.resx">
       <DependentUpon>FormNotaGassRide.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPilihMenu.resx">
+      <DependentUpon>FormPilihMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRatingDriver.resx">
       <DependentUpon>FormRatingDriver.cs</DependentUpon>

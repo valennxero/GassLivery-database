@@ -29,91 +29,117 @@
         private void InitializeComponent()
         {
             this.panelHeader = new System.Windows.Forms.Panel();
+            this.comboBoxAlamat = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBoxRestoran = new System.Windows.Forms.ComboBox();
+            this.comboBoxTenant = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonPesan = new System.Windows.Forms.Button();
+            this.buttonCek = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labelSaldo = new System.Windows.Forms.Label();
             this.panelHeader.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelHeader
             // 
             this.panelHeader.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.panelHeader.Controls.Add(this.comboBoxAlamat);
             this.panelHeader.Controls.Add(this.label10);
-            this.panelHeader.Controls.Add(this.textBox1);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
+            this.panelHeader.Margin = new System.Windows.Forms.Padding(2);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(686, 100);
+            this.panelHeader.Size = new System.Drawing.Size(514, 81);
             this.panelHeader.TabIndex = 11;
+            // 
+            // comboBoxAlamat
+            // 
+            this.comboBoxAlamat.FormattingEnabled = true;
+            this.comboBoxAlamat.Location = new System.Drawing.Point(31, 49);
+            this.comboBoxAlamat.Name = "comboBoxAlamat";
+            this.comboBoxAlamat.Size = new System.Drawing.Size(424, 21);
+            this.comboBoxAlamat.TabIndex = 5;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(47, 6);
+            this.label10.Location = new System.Drawing.Point(35, 5);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(235, 39);
+            this.label10.Size = new System.Drawing.Size(187, 31);
             this.label10.TabIndex = 4;
             this.label10.Text = "Alamat anda : ";
             // 
-            // textBox1
+            // comboBoxTenant
             // 
-            this.textBox1.Location = new System.Drawing.Point(54, 53);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(552, 22);
-            this.textBox1.TabIndex = 0;
-            // 
-            // comboBoxRestoran
-            // 
-            this.comboBoxRestoran.FormattingEnabled = true;
-            this.comboBoxRestoran.Items.AddRange(new object[] {
+            this.comboBoxTenant.FormattingEnabled = true;
+            this.comboBoxTenant.Items.AddRange(new object[] {
             "KFC",
             "HokBen",
             "Solaria"});
-            this.comboBoxRestoran.Location = new System.Drawing.Point(41, 201);
-            this.comboBoxRestoran.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBoxRestoran.Name = "comboBoxRestoran";
-            this.comboBoxRestoran.Size = new System.Drawing.Size(552, 24);
-            this.comboBoxRestoran.TabIndex = 9;
+            this.comboBoxTenant.Location = new System.Drawing.Point(31, 163);
+            this.comboBoxTenant.Name = "comboBoxTenant";
+            this.comboBoxTenant.Size = new System.Drawing.Size(415, 21);
+            this.comboBoxTenant.TabIndex = 9;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(44, 150);
+            this.label1.Location = new System.Drawing.Point(33, 122);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(235, 31);
+            this.label1.Size = new System.Drawing.Size(190, 26);
             this.label1.TabIndex = 12;
             this.label1.Text = "Restoran Pilihan : ";
             // 
-            // buttonPesan
+            // buttonCek
             // 
-            this.buttonPesan.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.buttonPesan.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPesan.Location = new System.Drawing.Point(186, 327);
-            this.buttonPesan.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonPesan.Name = "buttonPesan";
-            this.buttonPesan.Size = new System.Drawing.Size(272, 72);
-            this.buttonPesan.TabIndex = 13;
-            this.buttonPesan.Text = "Pesan Gass-kan";
-            this.buttonPesan.UseVisualStyleBackColor = false;
-            this.buttonPesan.Visible = false;
+            this.buttonCek.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.buttonCek.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCek.Location = new System.Drawing.Point(140, 266);
+            this.buttonCek.Name = "buttonCek";
+            this.buttonCek.Size = new System.Drawing.Size(204, 58);
+            this.buttonCek.TabIndex = 13;
+            this.buttonCek.Text = "Cek Menu";
+            this.buttonCek.UseVisualStyleBackColor = false;
+            this.buttonCek.Click += new System.EventHandler(this.buttonCek_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(362, 209);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Saldo :";
+            // 
+            // labelSaldo
+            // 
+            this.labelSaldo.AutoSize = true;
+            this.labelSaldo.Location = new System.Drawing.Point(410, 209);
+            this.labelSaldo.Name = "labelSaldo";
+            this.labelSaldo.Size = new System.Drawing.Size(13, 13);
+            this.labelSaldo.TabIndex = 15;
+            this.labelSaldo.Text = "0";
             // 
             // FormGassKan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.ClientSize = new System.Drawing.Size(686, 624);
-            this.Controls.Add(this.buttonPesan);
+            this.ClientSize = new System.Drawing.Size(514, 507);
+            this.Controls.Add(this.labelSaldo);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.buttonCek);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBoxRestoran);
+            this.Controls.Add(this.comboBoxTenant);
             this.Controls.Add(this.panelHeader);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormGassKan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormGassKan";
+            this.Load += new System.EventHandler(this.FormGassKan_Load);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
             this.ResumeLayout(false);
@@ -123,10 +149,12 @@
 
         #endregion
         private System.Windows.Forms.Panel panelHeader;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBoxRestoran;
+        private System.Windows.Forms.ComboBox comboBoxTenant;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonPesan;
+        private System.Windows.Forms.Button buttonCek;
+        private System.Windows.Forms.ComboBox comboBoxAlamat;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelSaldo;
     }
 }

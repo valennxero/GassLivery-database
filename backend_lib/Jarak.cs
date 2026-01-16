@@ -35,5 +35,22 @@ namespace backend_lib
             }
             return ListData;
         }
+
+        public static Jarak BacaDataJarak(int pId)
+        {
+            string perintah = $"select * from jarak where idJarak = {pId};";
+            MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
+            if (hasil.Read() == true)
+            {
+                Jarak j = new Jarak();
+                j.Id = hasil.GetInt32(0);
+                j.JarakKM = hasil.GetInt32(1);
+                j.LokasiAwal = Lokasi.BacaDataLokasi(hasil.GetInt32(2));
+                j.lokasiAkhir = Lokasi.BacaDataLokasi(hasil.GetInt32(3));
+                hasil.Close();
+                return j;
+            }
+            else return null;
+        }
     }
 }

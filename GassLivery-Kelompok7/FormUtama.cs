@@ -92,5 +92,19 @@ namespace GassLivery_Kelompok7
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void gassRideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormHistoryRide frm = new FormHistoryRide(userLogin);
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void buttonGassKan_Click(object sender, EventArgs e)
+        {
+            FormGassKan frm = new FormGassKan();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }
