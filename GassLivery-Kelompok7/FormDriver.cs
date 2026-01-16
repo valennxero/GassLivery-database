@@ -83,5 +83,11 @@ namespace GassLivery_Kelompok7
             FormHistoryFood frm = new FormHistoryFood(null, driverLogin);
             frm.ShowDialog();
         }
+
+        private void penarikanDanaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormHistoryPenarikanDana frm = new FormHistoryPenarikanDana(driverLogin);
+            frm.ShowDialog();
+        }
     }
 }

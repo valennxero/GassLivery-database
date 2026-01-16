@@ -98,6 +98,12 @@
     <Compile Include="FormHistoryFood.Designer.cs">
       <DependentUpon>FormHistoryFood.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormHistoryPenarikanDana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHistoryPenarikanDana.Designer.cs">
+      <DependentUpon>FormHistoryPenarikanDana.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormHistoryRide.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,12 +133,6 @@
     </Compile>
     <Compile Include="FormNotaGassRide.Designer.cs">
       <DependentUpon>FormNotaGassRide.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormPenarikanDana.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormPenarikanDana.Designer.cs">
-      <DependentUpon>FormPenarikanDana.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPilihMenu.cs">
       <SubType>Form</SubType>
@@ -201,6 +201,9 @@
     <EmbeddedResource Include="FormHistoryFood.resx">
       <DependentUpon>FormHistoryFood.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormHistoryPenarikanDana.resx">
+      <DependentUpon>FormHistoryPenarikanDana.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormHistoryRide.resx">
       <DependentUpon>FormHistoryRide.cs</DependentUpon>
     </EmbeddedResource>
@@ -215,9 +218,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNotaGassRide.resx">
       <DependentUpon>FormNotaGassRide.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormPenarikanDana.resx">
-      <DependentUpon>FormPenarikanDana.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPilihMenu.resx">
       <DependentUpon>FormPilihMenu.cs</DependentUpon>

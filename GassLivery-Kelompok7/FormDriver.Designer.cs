@@ -40,6 +40,7 @@
             this.riwayatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gassKanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gassRideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.penarikanDanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNominal)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -130,6 +131,7 @@
             // riwayatToolStripMenuItem
             // 
             this.riwayatToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.penarikanDanaToolStripMenuItem,
             this.gassRideToolStripMenuItem,
             this.gassKanToolStripMenuItem});
             this.riwayatToolStripMenuItem.Name = "riwayatToolStripMenuItem";
@@ -149,6 +151,13 @@
             this.gassRideToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gassRideToolStripMenuItem.Text = "Gass-Ride";
             this.gassRideToolStripMenuItem.Click += new System.EventHandler(this.gassRideToolStripMenuItem_Click);
+            // 
+            // penarikanDanaToolStripMenuItem
+            // 
+            this.penarikanDanaToolStripMenuItem.Name = "penarikanDanaToolStripMenuItem";
+            this.penarikanDanaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.penarikanDanaToolStripMenuItem.Text = "Penarikan Dana";
+            this.penarikanDanaToolStripMenuItem.Click += new System.EventHandler(this.penarikanDanaToolStripMenuItem_Click);
             // 
             // FormDriver
             // 
@@ -190,5 +199,6 @@
         private System.Windows.Forms.ToolStripMenuItem riwayatToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gassRideToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gassKanToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem penarikanDanaToolStripMenuItem;
     }
 }

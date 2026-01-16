@@ -33,7 +33,23 @@ namespace backend_lib
                              $"update driver set totalPendapatan = totalPendapatan - {pTarikDana.Nominal} where idDriver = {pTarikDana.Driver.Id};";
             Koneksi.JalankanQuery(perintah);
         }
-
+        public static List<PenarikanDana> BacaDataPenarikanByDriver(Driver pDriver)
+        {
+            string perintah = "select * from PenarikanDana where DriverId = " + pDriver.Id + ";";
+            MySql.Data.MySqlClient.MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
+            List<PenarikanDana> listPenarikan = new List<PenarikanDana>();
+            while (hasil.Read() == true)
+            {
+                PenarikanDana pd = new PenarikanDana(
+                    hasil.GetInt32("idPenarikanDana"),
+                    hasil.GetInt32("Nominal"),
+                    hasil.GetDateTime("Tanggal"),
+                    pDriver
+                    );
+                listPenarikan.Add(pd);
+            }
+            return listPenarikan;
+        }
 
     }
 }
