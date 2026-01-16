@@ -36,6 +36,11 @@
             this.driver = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tip = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Detail = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dateTimePickerAwal = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dateTimePickerAkhir = new System.Windows.Forms.DateTimePicker();
+            this.buttonSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDataRiwayat)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,11 +100,58 @@
             this.Detail.Name = "Detail";
             this.Detail.Text = "Cek";
             // 
+            // dateTimePickerAwal
+            // 
+            this.dateTimePickerAwal.Location = new System.Drawing.Point(45, 87);
+            this.dateTimePickerAwal.Name = "dateTimePickerAwal";
+            this.dateTimePickerAwal.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerAwal.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(45, 68);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Pilih Periode";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(264, 93);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(23, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "s/d";
+            // 
+            // dateTimePickerAkhir
+            // 
+            this.dateTimePickerAkhir.Location = new System.Drawing.Point(305, 86);
+            this.dateTimePickerAkhir.Name = "dateTimePickerAkhir";
+            this.dateTimePickerAkhir.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerAkhir.TabIndex = 5;
+            // 
+            // buttonSearch
+            // 
+            this.buttonSearch.Location = new System.Drawing.Point(545, 86);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(75, 23);
+            this.buttonSearch.TabIndex = 6;
+            this.buttonSearch.Text = "Search";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
             // FormHistoryRide
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 450);
+            this.Controls.Add(this.buttonSearch);
+            this.Controls.Add(this.dateTimePickerAkhir);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.dateTimePickerAwal);
             this.Controls.Add(this.dataGridViewDataRiwayat);
             this.Controls.Add(this.label1);
             this.Name = "FormHistoryRide";
@@ -121,5 +173,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn driver;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tip;
         private System.Windows.Forms.DataGridViewButtonColumn Detail;
+        private System.Windows.Forms.DateTimePicker dateTimePickerAwal;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dateTimePickerAkhir;
+        private System.Windows.Forms.Button buttonSearch;
     }
 }

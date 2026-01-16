@@ -74,11 +74,16 @@ namespace GassLivery_Kelompok7
             if(pesanan != null)
                 labelNamaDriver.Text = pesanan.Driver.Nama;
             if (pesananFood != null)
+            {
                 labelNamaDriver.Text = pesananFood.Driver.Nama;
+                buttonReport.Visible = false;
+            }
+
         }
 
         private void buttonReport_Click(object sender, EventArgs e)
         {
+            
             DialogResult result = MessageBox.Show("Anda yakin ingin melaporkan driver ini?","Report Driver", MessageBoxButtons.YesNo);
             if(result == DialogResult.Yes)
             {

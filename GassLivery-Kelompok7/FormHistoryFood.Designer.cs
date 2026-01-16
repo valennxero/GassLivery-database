@@ -37,6 +37,11 @@
             this.Tenant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tip = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Detail = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.dateTimePickerAkhir = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePickerAwal = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDataRiwayat)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +65,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 51);
+            this.label1.Location = new System.Drawing.Point(34, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 13);
             this.label1.TabIndex = 2;
@@ -102,11 +107,58 @@
             this.Detail.Name = "Detail";
             this.Detail.Text = "Cek";
             // 
+            // buttonSearch
+            // 
+            this.buttonSearch.Location = new System.Drawing.Point(534, 99);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(75, 23);
+            this.buttonSearch.TabIndex = 11;
+            this.buttonSearch.Text = "Search";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
+            // dateTimePickerAkhir
+            // 
+            this.dateTimePickerAkhir.Location = new System.Drawing.Point(294, 99);
+            this.dateTimePickerAkhir.Name = "dateTimePickerAkhir";
+            this.dateTimePickerAkhir.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerAkhir.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(253, 106);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(23, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "s/d";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(34, 81);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Pilih Periode";
+            // 
+            // dateTimePickerAwal
+            // 
+            this.dateTimePickerAwal.Location = new System.Drawing.Point(34, 100);
+            this.dateTimePickerAwal.Name = "dateTimePickerAwal";
+            this.dateTimePickerAwal.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerAwal.TabIndex = 7;
+            // 
             // FormHistoryFood
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(776, 450);
+            this.Controls.Add(this.buttonSearch);
+            this.Controls.Add(this.dateTimePickerAkhir);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.dateTimePickerAwal);
             this.Controls.Add(this.dataGridViewDataRiwayat);
             this.Controls.Add(this.label1);
             this.Name = "FormHistoryFood";
@@ -129,5 +181,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Tenant;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tip;
         private System.Windows.Forms.DataGridViewButtonColumn Detail;
+        private System.Windows.Forms.Button buttonSearch;
+        private System.Windows.Forms.DateTimePicker dateTimePickerAkhir;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dateTimePickerAwal;
     }
 }

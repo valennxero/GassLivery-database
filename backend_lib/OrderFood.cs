@@ -134,6 +134,11 @@ namespace backend_lib
             hasil.Close();
             return listOrder;
         }
-
+        public static List<OrderFood> FilterOrderRideByDate(DateTime startDate, DateTime endDate, List<OrderFood> orders)
+        {
+            List<OrderFood> filteredOrders = new List<OrderFood>(orders);
+            filteredOrders.RemoveAll(od => od.TanggalOrder < startDate || od.TanggalOrder > endDate);
+            return filteredOrders;
+        }
     }
 }

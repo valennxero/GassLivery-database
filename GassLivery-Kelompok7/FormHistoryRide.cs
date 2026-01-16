@@ -22,10 +22,11 @@ namespace GassLivery_Kelompok7
             userLogin = pUser;
             driverLogin = pDriver;
         }
+        List<OrderRide> listOrder;
 
         private void FormHistoryRide_Load(object sender, EventArgs e)
         {
-            List<OrderRide> listOrder;
+
             if (userLogin != null)
             {
                 listOrder = OrderRide.BacaData(userLogin, 0, 0);
@@ -43,7 +44,6 @@ namespace GassLivery_Kelompok7
                 double honor = listOrder[i].Tip;
                 dataGridViewDataRiwayat.Rows.Add(id, tglOrder, biaya, namaDriver, honor);
             }
-
         }
 
         private void dataGridViewDataRiwayat_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -54,6 +54,24 @@ namespace GassLivery_Kelompok7
                 int idOrder = (int)dataGridViewDataRiwayat.Rows[idx].Cells[0].Value;
                 FormNotaGassRide formNota = new FormNotaGassRide(OrderRide.BacaData(null, idOrder, 0)[0]);
                 formNota.ShowDialog();
+            }
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            DateTime awal = dateTimePickerAwal.Value;
+            DateTime akhir = dateTimePickerAkhir.Value.AddDays(1).AddTicks(-1);
+            List<OrderRide> hasilFilter = OrderRide.FilterOrderRideByDate(awal, akhir, listOrder);
+            dataGridViewDataRiwayat.Rows.Clear();
+
+            for (int i = 0; i < hasilFilter.Count; i++)
+            {
+                int id = hasilFilter[i].Id;
+                DateTime tglOrder = hasilFilter[i].TanggalOrder;
+                int biaya = hasilFilter[i].TotalTransaksi;
+                string namaDriver = hasilFilter[i].Driver.Nama;
+                double honor = hasilFilter[i].Tip;
+                dataGridViewDataRiwayat.Rows.Add(id, tglOrder, biaya, namaDriver, honor);
             }
         }
     }
