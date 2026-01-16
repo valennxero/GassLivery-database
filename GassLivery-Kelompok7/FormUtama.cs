@@ -95,7 +95,7 @@ namespace GassLivery_Kelompok7
 
         private void gassRideToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormHistoryRide frm = new FormHistoryRide(userLogin);
+            FormHistoryRide frm = new FormHistoryRide(userLogin, null);
             frm.MdiParent = this;
             frm.Show();
         }
@@ -109,7 +109,7 @@ namespace GassLivery_Kelompok7
 
         private void gassKanToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormHistoryFood frm = new FormHistoryFood(userLogin);
+            FormHistoryFood frm = new FormHistoryFood(userLogin, null);
             frm.MdiParent = this;
             frm.Show();
         }

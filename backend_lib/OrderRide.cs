@@ -96,16 +96,20 @@ namespace backend_lib
             string perintah = $"update `gass-mon` set saldo = saldo + {nilai} where id = {user.IdGassmon.Id}; ";
             Koneksi.JalankanQuery(perintah);
         }
-        public static List<OrderRide> BacaData(User pUser, int pId)
+        public static List<OrderRide> BacaData(User pUser, int pIdNota, int pDriverId)
         {
             string perintah = "";
-            if (pId == 0)
+            if (pUser != null)
             {
                 perintah = $"SELECT * FROM orderRide WHERE konsumenId = {pUser.Id};";
             }
-            if(pUser is null)
+            if(pIdNota != 0)
             {
-                perintah = $"SELECT * FROM orderRide WHERE idOrderRide = {pId};";
+                perintah = $"SELECT * FROM orderRide WHERE idOrderRide = {pIdNota};";
+            }
+            if (pDriverId != 0)
+            {
+                perintah = $"SELECT * FROM orderRide WHERE driverId = {pDriverId};";
             }
             MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
 

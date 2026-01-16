@@ -33,5 +33,7 @@ namespace backend_lib
                              $"update driver set totalPendapatan = totalPendapatan - {pTarikDana.Nominal} where idDriver = {pTarikDana.Driver.Id};";
             Koneksi.JalankanQuery(perintah);
         }
+
+
     }
 }

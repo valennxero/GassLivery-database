@@ -15,23 +15,35 @@ namespace GassLivery_Kelompok7
     public partial class FormHistoryRide : Form
     {
         User userLogin;
-        public FormHistoryRide(User pUser)
+        Driver driverLogin;
+        public FormHistoryRide(User pUser, Driver pDriver)
         {
             InitializeComponent();
             userLogin = pUser;
+            driverLogin = pDriver;
         }
 
         private void FormHistoryRide_Load(object sender, EventArgs e)
         {
-            List<OrderRide> listOrder = OrderRide.BacaData(userLogin, 0);
+            List<OrderRide> listOrder;
+            if (userLogin != null)
+            {
+                listOrder = OrderRide.BacaData(userLogin, 0, 0);
+            }
+            else
+            {
+                listOrder = OrderRide.BacaData(null, 0, driverLogin.Id);
+            }
             for (int i = 0; i < listOrder.Count; i++)
             {
                 int id = listOrder[i].Id;
                 DateTime tglOrder = listOrder[i].TanggalOrder;
                 int biaya = listOrder[i].TotalTransaksi;
                 string namaDriver = listOrder[i].Driver.Nama;
-                dataGridViewDataRiwayat.Rows.Add(id,  tglOrder, biaya, namaDriver);
+                double honor = listOrder[i].Tip;
+                dataGridViewDataRiwayat.Rows.Add(id, tglOrder, biaya, namaDriver, honor);
             }
+
         }
 
         private void dataGridViewDataRiwayat_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -40,7 +52,7 @@ namespace GassLivery_Kelompok7
             if (e.ColumnIndex == dataGridViewDataRiwayat.Columns["Detail"].Index)
             {
                 int idOrder = (int)dataGridViewDataRiwayat.Rows[idx].Cells[0].Value;
-                FormNotaGassRide formNota = new FormNotaGassRide(OrderRide.BacaData(null, idOrder)[0]);
+                FormNotaGassRide formNota = new FormNotaGassRide(OrderRide.BacaData(null, idOrder, 0)[0]);
                 formNota.ShowDialog();
             }
         }

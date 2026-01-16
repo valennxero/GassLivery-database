@@ -71,5 +71,17 @@ namespace GassLivery_Kelompok7
                 MessageBox.Show("Penarikan dana hanya dapat dilakukan pada hari Minggu");
             }
         }
+
+        private void gassRideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormHistoryRide frm = new FormHistoryRide(null, driverLogin);
+            frm.ShowDialog();
+        }
+
+        private void gassKanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormHistoryFood frm = new FormHistoryFood(null, driverLogin);
+            frm.ShowDialog();
+        }
     }
 }

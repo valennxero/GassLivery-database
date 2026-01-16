@@ -23,6 +23,7 @@ namespace GassLivery_Kelompok7
         private void FormNotaGassRide_Load(object sender, EventArgs e)
         {
             labelIdOrder.Text = pesanan.Id.ToString();
+            labelKosnumen.Text = pesanan.Konsumen.Nama;
             labelTanggal.Text = pesanan.TanggalOrder.ToString("dd/MM/yyyy HH:mm");
             labelNamaDriver.Text = pesanan.Driver.Nama;
             labelPlat.Text = pesanan.Driver.Motor.PlatNomor;

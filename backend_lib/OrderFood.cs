@@ -88,16 +88,20 @@ namespace backend_lib
             Koneksi.JalankanQuery(perintah);
         }
 
-        public static List<OrderFood> BacaData(User pUser, int pId)
+        public static List<OrderFood> BacaData(User pUser, int pIdOrder, int pDriverId)
         {
             string perintah = "";
-            if (pId == 0)
+            if (pUser != null)
             {
                 perintah = $"select * from orderFood where konsumenId = {pUser.Id};";
             }
-            if(pUser is null)
+            if(pIdOrder != 0)
             {
-                perintah = $"select * from orderFood where idOrderFood = {pId};";
+                perintah = $"select * from orderFood where idOrderFood = {pIdOrder};";
+            }
+            if(pDriverId != 0)
+            {
+                perintah = $"select * from orderFood where driverId = {pDriverId};";
             }
             MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
 

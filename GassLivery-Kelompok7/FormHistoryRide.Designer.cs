@@ -34,6 +34,7 @@
             this.Tanggal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Biaya = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.driver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tip = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Detail = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDataRiwayat)).BeginInit();
             this.SuspendLayout();
@@ -55,10 +56,11 @@
             this.Tanggal,
             this.Biaya,
             this.driver,
+            this.Tip,
             this.Detail});
             this.dataGridViewDataRiwayat.Location = new System.Drawing.Point(12, 134);
             this.dataGridViewDataRiwayat.Name = "dataGridViewDataRiwayat";
-            this.dataGridViewDataRiwayat.Size = new System.Drawing.Size(564, 261);
+            this.dataGridViewDataRiwayat.Size = new System.Drawing.Size(634, 261);
             this.dataGridViewDataRiwayat.TabIndex = 1;
             this.dataGridViewDataRiwayat.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDataRiwayat_CellContentClick);
             // 
@@ -81,6 +83,11 @@
             // 
             this.driver.HeaderText = "Nama Driver";
             this.driver.Name = "driver";
+            // 
+            // Tip
+            // 
+            this.Tip.HeaderText = "Honor Driver";
+            this.Tip.Name = "Tip";
             // 
             // Detail
             // 
@@ -112,6 +119,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Tanggal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Biaya;
         private System.Windows.Forms.DataGridViewTextBoxColumn driver;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tip;
         private System.Windows.Forms.DataGridViewButtonColumn Detail;
     }
 }

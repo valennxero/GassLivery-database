@@ -8,9 +8,6 @@ namespace backend_lib
 {
     public class RatingTenant
     {
-        private int id;
-        private User konsumen;
-        private Tenant tenant;
         public static void RateTenant(User pUser, Tenant pTenant, int pNilai)
         {
             string perintah = "insert into ratingTenant (konsumenId, tenantId, nilai)" +

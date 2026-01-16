@@ -44,6 +44,8 @@
             this.label14 = new System.Windows.Forms.Label();
             this.labelBiaya = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labelKosnumen = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -76,7 +78,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 98);
+            this.label4.Location = new System.Drawing.Point(13, 118);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 13);
             this.label4.TabIndex = 3;
@@ -85,7 +87,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 133);
+            this.label5.Location = new System.Drawing.Point(13, 143);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 13);
             this.label5.TabIndex = 4;
@@ -94,7 +96,7 @@
             // labelLokasiAwal
             // 
             this.labelLokasiAwal.AutoSize = true;
-            this.labelLokasiAwal.Location = new System.Drawing.Point(105, 97);
+            this.labelLokasiAwal.Location = new System.Drawing.Point(105, 119);
             this.labelLokasiAwal.Name = "labelLokasiAwal";
             this.labelLokasiAwal.Size = new System.Drawing.Size(65, 13);
             this.labelLokasiAwal.TabIndex = 5;
@@ -103,7 +105,7 @@
             // labelLokasiTujuan
             // 
             this.labelLokasiTujuan.AutoSize = true;
-            this.labelLokasiTujuan.Location = new System.Drawing.Point(105, 133);
+            this.labelLokasiTujuan.Location = new System.Drawing.Point(105, 143);
             this.labelLokasiTujuan.Name = "labelLokasiTujuan";
             this.labelLokasiTujuan.Size = new System.Drawing.Size(72, 13);
             this.labelLokasiTujuan.TabIndex = 6;
@@ -191,11 +193,31 @@
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 94);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Konsumen :";
+            // 
+            // labelKosnumen
+            // 
+            this.labelKosnumen.AutoSize = true;
+            this.labelKosnumen.Location = new System.Drawing.Point(100, 94);
+            this.labelKosnumen.Name = "labelKosnumen";
+            this.labelKosnumen.Size = new System.Drawing.Size(62, 13);
+            this.labelKosnumen.TabIndex = 17;
+            this.labelKosnumen.Text = "(nama user)";
+            // 
             // FormNotaGassRide
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(315, 450);
+            this.Controls.Add(this.labelKosnumen);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.labelBiaya);
             this.Controls.Add(this.label14);
@@ -238,5 +260,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label labelBiaya;
         private System.Windows.Forms.Button buttonClose;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelKosnumen;
     }
 }

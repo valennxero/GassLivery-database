@@ -14,15 +14,25 @@ namespace GassLivery_Kelompok7
     public partial class FormHistoryFood : Form
     {
         User userLogin;
-        public FormHistoryFood(User pUser)
+        Driver driverLogin;
+        public FormHistoryFood(User pUser, Driver pDriver)
         {
             InitializeComponent();
             userLogin = pUser;
+            driverLogin = pDriver;
         }
 
         private void FormHistoryFood_Load(object sender, EventArgs e)
         {
-            List<OrderFood> listOrder = OrderFood.BacaData(userLogin, 0);
+            List<OrderFood> listOrder;
+            if (userLogin != null)
+            {
+                listOrder = OrderFood.BacaData(userLogin, 0, 0);
+            }
+            else
+            {
+                listOrder = OrderFood.BacaData(null, 0, driverLogin.Id);
+            }
             for (int i = 0; i < listOrder.Count; i++)
             {
                 int id = listOrder[i].Id;
@@ -30,7 +40,8 @@ namespace GassLivery_Kelompok7
                 int biaya = listOrder[i].TotalBiaya;
                 string namaDriver = listOrder[i].Driver.Nama;
                 string namaTenant = listOrder[i].Tenant.NamaTenant;
-                dataGridViewDataRiwayat.Rows.Add(id, tglOrder, biaya, namaDriver, namaTenant);
+                double honorDriver = listOrder[i].Tip;
+                dataGridViewDataRiwayat.Rows.Add(id, tglOrder, biaya, namaDriver, namaTenant, honorDriver);
             }
         }
 
@@ -40,7 +51,7 @@ namespace GassLivery_Kelompok7
             if (e.ColumnIndex == dataGridViewDataRiwayat.Columns["Detail"].Index)
             {
                 int idOrder = (int)dataGridViewDataRiwayat.Rows[idx].Cells[0].Value;
-                FormNotaGassKan formNota = new FormNotaGassKan(OrderFood.BacaData(null, idOrder)[0]);
+                FormNotaGassKan formNota = new FormNotaGassKan(OrderFood.BacaData(null, idOrder, 0)[0]);
                 formNota.ShowDialog();
             }
         }

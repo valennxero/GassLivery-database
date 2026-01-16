@@ -35,6 +35,7 @@
             this.Biaya = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.driver = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tenant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tip = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Detail = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDataRiwayat)).BeginInit();
             this.SuspendLayout();
@@ -48,10 +49,11 @@
             this.Biaya,
             this.driver,
             this.Tenant,
+            this.Tip,
             this.Detail});
             this.dataGridViewDataRiwayat.Location = new System.Drawing.Point(-1, 145);
             this.dataGridViewDataRiwayat.Name = "dataGridViewDataRiwayat";
-            this.dataGridViewDataRiwayat.Size = new System.Drawing.Size(659, 261);
+            this.dataGridViewDataRiwayat.Size = new System.Drawing.Size(752, 261);
             this.dataGridViewDataRiwayat.TabIndex = 3;
             this.dataGridViewDataRiwayat.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDataRiwayat_CellContentClick);
             // 
@@ -89,6 +91,11 @@
             this.Tenant.HeaderText = "Nama Tenant";
             this.Tenant.Name = "Tenant";
             // 
+            // Tip
+            // 
+            this.Tip.HeaderText = "Honor Driver";
+            this.Tip.Name = "Tip";
+            // 
             // Detail
             // 
             this.Detail.HeaderText = "Cek Detail";
@@ -99,7 +106,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(660, 450);
+            this.ClientSize = new System.Drawing.Size(776, 450);
             this.Controls.Add(this.dataGridViewDataRiwayat);
             this.Controls.Add(this.label1);
             this.Name = "FormHistoryFood";
@@ -114,12 +121,13 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridViewDataRiwayat;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tanggal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Biaya;
         private System.Windows.Forms.DataGridViewTextBoxColumn driver;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tenant;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tip;
         private System.Windows.Forms.DataGridViewButtonColumn Detail;
-        private System.Windows.Forms.Label label1;
     }
 }

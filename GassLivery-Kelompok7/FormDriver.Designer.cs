@@ -36,7 +36,12 @@
             this.labelNamaDriver = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.labelPendapatan = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.riwayatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gassKanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gassRideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNominal)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -111,6 +116,40 @@
             this.labelPendapatan.TabIndex = 7;
             this.labelPendapatan.Text = "0";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.riwayatToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 426);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(334, 24);
+            this.menuStrip1.TabIndex = 8;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // riwayatToolStripMenuItem
+            // 
+            this.riwayatToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gassRideToolStripMenuItem,
+            this.gassKanToolStripMenuItem});
+            this.riwayatToolStripMenuItem.Name = "riwayatToolStripMenuItem";
+            this.riwayatToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.riwayatToolStripMenuItem.Text = "Riwayat";
+            // 
+            // gassKanToolStripMenuItem
+            // 
+            this.gassKanToolStripMenuItem.Name = "gassKanToolStripMenuItem";
+            this.gassKanToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gassKanToolStripMenuItem.Text = "Gass-Kan";
+            this.gassKanToolStripMenuItem.Click += new System.EventHandler(this.gassKanToolStripMenuItem_Click);
+            // 
+            // gassRideToolStripMenuItem
+            // 
+            this.gassRideToolStripMenuItem.Name = "gassRideToolStripMenuItem";
+            this.gassRideToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gassRideToolStripMenuItem.Text = "Gass-Ride";
+            this.gassRideToolStripMenuItem.Click += new System.EventHandler(this.gassRideToolStripMenuItem_Click);
+            // 
             // FormDriver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -124,10 +163,14 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormDriver";
             this.Text = "FormDriver";
             this.Load += new System.EventHandler(this.FormDriver_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNominal)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,5 +186,9 @@
         private System.Windows.Forms.Label labelNamaDriver;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label labelPendapatan;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem riwayatToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gassRideToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gassKanToolStripMenuItem;
     }
 }
