@@ -74,38 +74,21 @@ namespace backend_lib
             }
         }
 
-        public static User BacaData(string uid)
+        public static User BacaData(string pUsername, int pId)
         {
-            string perintah = "select k.id, k.gender, k.nama, k.username, k.`password`, g.id, g.saldo, g.poin " +
-                "from konsumen k join `gass-mon` g on k.idGassmon = g.id" +
-                " where username='" + uid + "';";
-            MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
-            if (hasil.Read())
+            string perintah = "";
+            if (pUsername != "")
             {
-                Gassmon g = new Gassmon();
-                g.Id = hasil.GetInt32(5);
-                g.Saldo = hasil.GetInt32(6);
-                g.Poin = hasil.GetInt32(7);
-                User u = new User();
-                u.Id = hasil.GetInt32(0);
-                u.Gender = hasil.GetValue(1).ToString();
-                u.Nama = hasil.GetValue(2).ToString();
-                u.Username = hasil.GetValue(3).ToString();
-                u.Password = hasil.GetValue(4).ToString();
-                u.IdGassmon = g;
-                return u;
+                perintah = "select k.id, k.gender, k.nama, k.username, k.`password`, g.id, g.saldo, g.poin " +
+                    "from konsumen k join `gass-mon` g on k.idGassmon = g.id" +
+                    " where username='" + pUsername + "';";
             }
             else
             {
-                return null;
-            }
-        }
-
-        public static User BacaData(int pId)
-        {
-            string perintah = "select k.id, k.gender, k.nama, k.username, k.`password`, g.id, g.saldo, g.poin " +
+                perintah = "select k.id, k.gender, k.nama, k.username, k.`password`, g.id, g.saldo, g.poin " +
                 "from konsumen k join `gass-mon` g on k.idGassmon = g.id" +
                 " where k.id='" + pId + "';";
+            }
             MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
             if (hasil.Read())
             {
@@ -120,7 +103,6 @@ namespace backend_lib
                 u.Username = hasil.GetValue(3).ToString();
                 u.Password = hasil.GetValue(4).ToString();
                 u.IdGassmon = g;
-                hasil.Close();
                 return u;
             }
             else
