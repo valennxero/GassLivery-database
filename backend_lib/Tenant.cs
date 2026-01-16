@@ -12,12 +12,14 @@ namespace backend_lib
         private int id;
         private string namaTenant;
         private Lokasi lokasiTenant;
+        private double ratingTenant;
 
-        public Tenant(int id, string namaTenant, Lokasi lokasiTenant)
+        public Tenant(int id, string namaTenant, Lokasi lokasiTenant, double ratingTenant)
         {
             Id = id;
             NamaTenant = namaTenant;
             LokasiTenant = lokasiTenant;
+            RatingTenant = ratingTenant;
         }
 
         public Tenant()
@@ -25,10 +27,12 @@ namespace backend_lib
             this.Id = 0;
             this.NamaTenant = "";
             this.lokasiTenant = null;
+            this.RatingTenant = 0;
         }
         public int Id { get => id; set => id = value; }
         public string NamaTenant { get => namaTenant; set => namaTenant = value; }
         public Lokasi LokasiTenant { get => lokasiTenant; set => lokasiTenant = value; }
+        public double RatingTenant { get => ratingTenant; set => ratingTenant = value; }
 
         public static List<Tenant> BacaData(string filter, string nilai)
         {
@@ -50,6 +54,7 @@ namespace backend_lib
                 t.Id = int.Parse(hasil.GetValue(0).ToString());
                 t.NamaTenant = hasil.GetValue(1).ToString();
                 t.LokasiTenant = Lokasi.BacaDataLokasi(hasil.GetInt32(2));
+                t.RatingTenant = hasil.GetDouble(3);
                 ListData.Add(t);
             }
             return ListData;

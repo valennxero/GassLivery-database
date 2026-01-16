@@ -82,6 +82,10 @@ namespace backend_lib
                 return null;
             }
         }
-        
+        public static void UpdateSelesai(OrderFood order)
+        {
+            string perintah = $"update orderFood set statusSelesai = 1 where idOrderFood = {order.Id};";
+            Koneksi.JalankanQuery(perintah);
+        }
     }
 }

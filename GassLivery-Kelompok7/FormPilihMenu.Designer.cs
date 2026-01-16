@@ -32,21 +32,26 @@
             this.labelNamaTenant = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.dataGridViewMenu = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.labelHargaTotal = new System.Windows.Forms.Label();
-            this.buttonKonfirmasi = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.Nama = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Harga = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Halal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pilih = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Hapus = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelHargaTotal = new System.Windows.Forms.Label();
+            this.buttonKonfirmasi = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.dataGridViewKeranjang = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Jumlah = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HargaTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkBoxPoin = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.labelOngkir = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.labelTotal = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -104,53 +109,6 @@
             this.dataGridViewMenu.TabIndex = 5;
             this.dataGridViewMenu.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMenu_CellContentClick);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(198, 94);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(66, 62);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 547);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Harga Total : Rp ";
-            // 
-            // labelHargaTotal
-            // 
-            this.labelHargaTotal.AutoSize = true;
-            this.labelHargaTotal.Location = new System.Drawing.Point(127, 547);
-            this.labelHargaTotal.Name = "labelHargaTotal";
-            this.labelHargaTotal.Size = new System.Drawing.Size(25, 13);
-            this.labelHargaTotal.TabIndex = 7;
-            this.labelHargaTotal.Text = "000";
-            // 
-            // buttonKonfirmasi
-            // 
-            this.buttonKonfirmasi.Location = new System.Drawing.Point(340, 547);
-            this.buttonKonfirmasi.Name = "buttonKonfirmasi";
-            this.buttonKonfirmasi.Size = new System.Drawing.Size(121, 23);
-            this.buttonKonfirmasi.TabIndex = 8;
-            this.buttonKonfirmasi.Text = "Konfirmasi";
-            this.buttonKonfirmasi.UseVisualStyleBackColor = true;
-            this.buttonKonfirmasi.Click += new System.EventHandler(this.buttonKonfirmasi_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 327);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Keranjang :";
-            // 
             // Nama
             // 
             this.Nama.HeaderText = "Nama Menu";
@@ -177,6 +135,53 @@
             this.Hapus.Name = "Hapus";
             this.Hapus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Hapus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(198, 94);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(66, 62);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(29, 547);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Harga Makanan : Rp ";
+            // 
+            // labelHargaTotal
+            // 
+            this.labelHargaTotal.AutoSize = true;
+            this.labelHargaTotal.Location = new System.Drawing.Point(146, 547);
+            this.labelHargaTotal.Name = "labelHargaTotal";
+            this.labelHargaTotal.Size = new System.Drawing.Size(25, 13);
+            this.labelHargaTotal.TabIndex = 7;
+            this.labelHargaTotal.Text = "000";
+            // 
+            // buttonKonfirmasi
+            // 
+            this.buttonKonfirmasi.Location = new System.Drawing.Point(340, 547);
+            this.buttonKonfirmasi.Name = "buttonKonfirmasi";
+            this.buttonKonfirmasi.Size = new System.Drawing.Size(121, 23);
+            this.buttonKonfirmasi.TabIndex = 8;
+            this.buttonKonfirmasi.Text = "Konfirmasi";
+            this.buttonKonfirmasi.UseVisualStyleBackColor = true;
+            this.buttonKonfirmasi.Click += new System.EventHandler(this.buttonKonfirmasi_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(32, 327);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Keranjang :";
             // 
             // dataGridViewKeranjang
             // 
@@ -215,11 +220,62 @@
             this.HargaTotal.HeaderText = "SubTotal";
             this.HargaTotal.Name = "HargaTotal";
             // 
+            // checkBoxPoin
+            // 
+            this.checkBoxPoin.AutoSize = true;
+            this.checkBoxPoin.Location = new System.Drawing.Point(243, 551);
+            this.checkBoxPoin.Name = "checkBoxPoin";
+            this.checkBoxPoin.Size = new System.Drawing.Size(94, 17);
+            this.checkBoxPoin.TabIndex = 12;
+            this.checkBoxPoin.Text = "Gunakan Poin";
+            this.checkBoxPoin.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(29, 569);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(93, 13);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Harga Ongkir : Rp";
+            // 
+            // labelOngkir
+            // 
+            this.labelOngkir.AutoSize = true;
+            this.labelOngkir.Location = new System.Drawing.Point(144, 569);
+            this.labelOngkir.Name = "labelOngkir";
+            this.labelOngkir.Size = new System.Drawing.Size(25, 13);
+            this.labelOngkir.TabIndex = 14;
+            this.labelOngkir.Text = "000";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(32, 595);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(54, 13);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Total : Rp";
+            // 
+            // labelTotal
+            // 
+            this.labelTotal.AutoSize = true;
+            this.labelTotal.Location = new System.Drawing.Point(144, 595);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(25, 13);
+            this.labelTotal.TabIndex = 16;
+            this.labelTotal.Text = "000";
+            // 
             // FormPilihMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(580, 613);
+            this.ClientSize = new System.Drawing.Size(580, 643);
+            this.Controls.Add(this.labelTotal);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.labelOngkir);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.checkBoxPoin);
             this.Controls.Add(this.dataGridViewKeranjang);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonKonfirmasi);
@@ -262,5 +318,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Jumlah;
         private System.Windows.Forms.DataGridViewTextBoxColumn HargaTotal;
+        private System.Windows.Forms.CheckBox checkBoxPoin;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelOngkir;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelTotal;
     }
 }

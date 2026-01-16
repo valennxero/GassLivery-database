@@ -106,5 +106,10 @@ namespace GassLivery_Kelompok7
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void gassKanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

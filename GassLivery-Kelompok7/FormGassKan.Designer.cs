@@ -34,8 +34,6 @@
             this.comboBoxTenant = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonCek = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.labelSaldo = new System.Windows.Forms.Label();
             this.panelHeader.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,32 +103,12 @@
             this.buttonCek.UseVisualStyleBackColor = false;
             this.buttonCek.Click += new System.EventHandler(this.buttonCek_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(362, 209);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Saldo :";
-            // 
-            // labelSaldo
-            // 
-            this.labelSaldo.AutoSize = true;
-            this.labelSaldo.Location = new System.Drawing.Point(410, 209);
-            this.labelSaldo.Name = "labelSaldo";
-            this.labelSaldo.Size = new System.Drawing.Size(13, 13);
-            this.labelSaldo.TabIndex = 15;
-            this.labelSaldo.Text = "0";
-            // 
             // FormGassKan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.ClientSize = new System.Drawing.Size(514, 507);
-            this.Controls.Add(this.labelSaldo);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonCek);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBoxTenant);
@@ -154,7 +132,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonCek;
         private System.Windows.Forms.ComboBox comboBoxAlamat;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label labelSaldo;
     }
 }

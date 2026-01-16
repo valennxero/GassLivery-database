@@ -54,7 +54,7 @@ namespace GassLivery_Kelompok7
             OrderRide.UpdateSelesai(pesanan);
             MessageBox.Show("Pesanan telah selesai");
             Driver.UangMasuk(pesanan.Tip, pesanan.Driver);
-            FormRatingDriver frm = new FormRatingDriver(pesanan);
+            FormRatingDriver frm = new FormRatingDriver(pesanan, null);
             frm.Owner = this;
             frm.ShowDialog();
         }

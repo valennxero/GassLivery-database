@@ -26,10 +26,10 @@ namespace backend_lib
         public int Id { get => id; set => id = value; }
         public int Nilai { get => nilai; set => nilai = value; }
 
-        public static void RateDriver(OrderRide pOrder, int pNilai)
+        public static void RateDriver(User pUser, Driver pDriver, int pNilai)
         {
             string perintah = "insert into rating (konsumenId, driverId, nilai)" +
-                $" values ({pOrder.Konsumen.Id}, {pOrder.Driver.Id}, {pNilai});";
+                $" values ({pUser.Id}, {pDriver.Id}, {pNilai});";
             Koneksi.JalankanQuery(perintah);
         }
 

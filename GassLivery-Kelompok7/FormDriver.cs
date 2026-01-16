@@ -57,7 +57,7 @@ namespace GassLivery_Kelompok7
         private void buttonTarik_Click(object sender, EventArgs e)
         {
             //update ke database
-            if(DateTime.Now.DayOfWeek != DayOfWeek.Sunday)
+            if(DateTime.Now.DayOfWeek == DayOfWeek.Sunday)
             {
                 PenarikanDana PenarikanDana = new PenarikanDana(0, (int)newValue, DateTime.Now, driverLogin);
                 PenarikanDana.TarikDana(PenarikanDana);

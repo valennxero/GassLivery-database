@@ -68,6 +68,12 @@
     <Compile Include="FormGassKan.Designer.cs">
       <DependentUpon>FormGassKan.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormGassKanKonfirmasi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGassKanKonfirmasi.Designer.cs">
+      <DependentUpon>FormGassKanKonfirmasi.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGassRide1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,12 @@
     <Compile Include="FormRatingDriver.Designer.cs">
       <DependentUpon>FormRatingDriver.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRatingTenant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRatingTenant.Designer.cs">
+      <DependentUpon>FormRatingTenant.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSignUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +168,9 @@
     <EmbeddedResource Include="FormGassKan.resx">
       <DependentUpon>FormGassKan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormGassKanKonfirmasi.resx">
+      <DependentUpon>FormGassKanKonfirmasi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormGassRide1.resx">
       <DependentUpon>FormGassRide1.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormRatingDriver.resx">
       <DependentUpon>FormRatingDriver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRatingTenant.resx">
+      <DependentUpon>FormRatingTenant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSignUp.resx">
       <DependentUpon>FormSignUp.cs</DependentUpon>

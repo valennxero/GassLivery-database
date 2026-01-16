@@ -29,5 +29,20 @@ namespace backend_lib
         public int Harga { get => harga; set => harga = value; }
         public int Jumlah { get => jumlah; set => jumlah = value; }
         public MenuTenant Menu { get => menu; set => menu = value; }
+
+        public static void TambahData(OrderFood pOrder)
+        {
+            int jumlahDetail, hargaDetail, menuId;
+            foreach (FoodDetail fd in pOrder.ListDetail)
+            {
+                jumlahDetail = fd.Jumlah;
+                hargaDetail = fd.Harga;
+                menuId = fd.Menu.Id;
+                string perintah = "insert into notaFoodDetail (harga, jumlah, orderFoodId, menuId)" +
+                    $" values ({hargaDetail},{jumlahDetail},{pOrder.Id}, {menuId});";
+                Koneksi.JalankanQuery(perintah);
+            }
+        }
     }
+
 }

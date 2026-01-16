@@ -77,5 +77,39 @@ namespace backend_lib
             MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
         }
 
+        public static void Bayar(bool pPoin, int biaya, int sisaPoin, int sisaSaldo, User pUserLogin)
+        {
+            if (pPoin)
+            {
+                //logic pakai poin, kurangi biaya sesuai poin yang ada dengan kelipatan 5000
+                int maxPotongan = biaya - (biaya % 5000);
+                int poinTersedia = sisaPoin - (sisaPoin % 5000);
+                int poinDipakai = Math.Min(maxPotongan, poinTersedia);
+                if (poinDipakai < 5000)
+                {
+                    poinDipakai = 0;
+                }
+
+                if ((biaya - poinDipakai) <= sisaSaldo)
+                {
+                    //Bayar
+                    //kurangi poin pada database
+                    Gassmon.BayarPakaiPoin(poinDipakai, pUserLogin);
+                    //kurangi saldo pada database
+                    Gassmon.BayarPakaiSaldo(biaya - poinDipakai, pUserLogin);
+                }
+            }
+            else
+            {
+                if (biaya <= sisaSaldo && biaya > sisaPoin || biaya <= sisaSaldo && biaya <= sisaPoin)
+                {
+                    Gassmon.BayarPakaiSaldo(biaya, pUserLogin);
+                }
+                else
+                {
+                    Gassmon.BayarPakaiPoin(biaya, pUserLogin);
+                }
+            }
+        }
     }
 }

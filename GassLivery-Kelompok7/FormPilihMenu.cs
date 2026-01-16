@@ -27,6 +27,14 @@ namespace GassLivery_Kelompok7
         private void FormPilihMenu_Load(object sender, EventArgs e)
         {
             labelNamaTenant.Text = tenantPilihan.NamaTenant;
+            //tentukan harga ongkir
+            Waktu waktu = Waktu.BacaDataGassKan(DateTime.Now.Hour);
+            int biayaPerKm = waktu.Harga;
+            int jarakTotal = jarakLokasi.JarakKM;
+            int ongkir = biayaPerKm * jarakTotal;
+            labelOngkir.Text = ongkir.ToString();
+
+            //tampilkan menu tenant
             string uid = tenantPilihan.Id.ToString();
             List<MenuTenant> listMenu = MenuTenant.BacaDataMenu("tenantId", uid);
             for (int i = 0; i < listMenu.Count; i++)
@@ -54,6 +62,7 @@ namespace GassLivery_Kelompok7
                 total += subtotal;
             }
             labelHargaTotal.Text = total.ToString();
+            labelTotal.Text = (int.Parse(labelOngkir.Text) + total).ToString();
         }
         private void dataGridViewMenu_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -168,6 +177,20 @@ namespace GassLivery_Kelompok7
                 listFoodDetail,
                 tenantPilihan
                 );
+
+            if(dataGridViewKeranjang.Rows.Count - 1 == 0)
+            {
+                MessageBox.Show(Text = "Keranjang kosong!", "Info");
+                return;
+            }
+
+            FoodDetail.TambahData(od);
+            Gassmon.Bayar(checkBoxPoin.Checked, biayaTotal, userLogin.IdGassmon.Poin, userLogin.IdGassmon.Saldo, userLogin);
+            this.Close();
+
+            MessageBox.Show(Text = "Pesanan berhasil dibuat!", "Info");
+            FormGassKanKonfirmasi frm = new FormGassKanKonfirmasi(od);
+            frm.ShowDialog();
         }
 
         private void dataGridViewKeranjang_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -26,7 +26,6 @@ namespace GassLivery_Kelompok7
             List<Tenant> listTenant = Tenant.BacaData("","");
             comboBoxTenant.DataSource = listTenant;
             FormUtama frm = (FormUtama)this.MdiParent;
-            labelSaldo.Text = frm.userLogin.IdGassmon.Saldo.ToString();
         }
 
         private void buttonCek_Click(object sender, EventArgs e)

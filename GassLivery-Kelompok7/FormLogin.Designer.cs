@@ -120,7 +120,8 @@
             this.comboBoxLogin.Items.AddRange(new object[] {
             "Konsumen",
             "Driver",
-            "Admin"});
+            "Admin",
+            "Tenant"});
             this.comboBoxLogin.Location = new System.Drawing.Point(141, 71);
             this.comboBoxLogin.Name = "comboBoxLogin";
             this.comboBoxLogin.Size = new System.Drawing.Size(121, 21);

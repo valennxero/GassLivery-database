@@ -74,7 +74,7 @@
             // 
             // buttonCekHarga
             // 
-            this.buttonCekHarga.Location = new System.Drawing.Point(128, 346);
+            this.buttonCekHarga.Location = new System.Drawing.Point(183, 443);
             this.buttonCekHarga.Name = "buttonCekHarga";
             this.buttonCekHarga.Size = new System.Drawing.Size(75, 23);
             this.buttonCekHarga.TabIndex = 4;
@@ -187,12 +187,12 @@
             this.groupBoxPesan.Controls.Add(this.dateTimePickerJam);
             this.groupBoxPesan.Controls.Add(this.radioButtonPesanNanti);
             this.groupBoxPesan.Controls.Add(this.radioButtonSekarang);
-            this.groupBoxPesan.Location = new System.Drawing.Point(12, 400);
+            this.groupBoxPesan.Location = new System.Drawing.Point(22, 327);
             this.groupBoxPesan.Name = "groupBoxPesan";
             this.groupBoxPesan.Size = new System.Drawing.Size(326, 94);
             this.groupBoxPesan.TabIndex = 28;
             this.groupBoxPesan.TabStop = false;
-            this.groupBoxPesan.Text = "groupBox1";
+            this.groupBoxPesan.Text = "groupBoxPesan";
             // 
             // label5
             // 

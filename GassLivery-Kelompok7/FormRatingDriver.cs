@@ -14,15 +14,16 @@ namespace GassLivery_Kelompok7
     public partial class FormRatingDriver : Form
     {
         OrderRide pesanan;
-        public FormRatingDriver(OrderRide pPesanan)
+        OrderFood pesananFood;
+        public FormRatingDriver(OrderRide pPesanan, OrderFood pPesananFood)
         {
             InitializeComponent();
             pesanan = pPesanan;
+            pesananFood = pPesananFood;
         }
 
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
-
             int nilai = 5;
             if (radioButton1.Checked)
             {
@@ -44,21 +45,36 @@ namespace GassLivery_Kelompok7
             {
                 nilai = 5;
             }
-
-            RatingDriver.RateDriver(pesanan, nilai);
-            RatingDriver.UpdateTotalRatingDriver(pesanan.Driver);
-            MessageBox.Show("Terimakasih atas rating anda");
-            this.Close();
-            this.Owner.Close();
-            FormNotaGassRide formNota = new FormNotaGassRide(pesanan);
-            formNota.Owner = this;
-            formNota.ShowDialog();
+            if (pesanan != null)
+            {
+                RatingDriver.RateDriver(pesanan.Konsumen, pesanan.Driver, nilai);
+                RatingDriver.UpdateTotalRatingDriver(pesanan.Driver);
+                MessageBox.Show("Terimakasih atas rating anda");
+                this.Close();
+                this.Owner.Close();
+                FormNotaGassRide formNota = new FormNotaGassRide(pesanan);
+                formNota.Owner = this;
+                formNota.ShowDialog();
+            }
+            else if (pesananFood != null)
+            {
+                RatingDriver.RateDriver(pesananFood.Konsumen, pesananFood.Driver, nilai);
+                RatingDriver.UpdateTotalRatingDriver(pesananFood.Driver);
+                MessageBox.Show("Terimakasih atas rating anda");
+                this.Close();
+                this.Owner.Close();
+                FormRatingTenant formNota = new FormRatingTenant(pesananFood);
+                formNota.Owner = this;
+                formNota.ShowDialog();
+            }
         }
 
         private void FormRatingDriver_Load(object sender, EventArgs e)
         {
-            labelNamaDriver.Text = pesanan.Driver.Nama;
-
+            if(pesanan != null)
+                labelNamaDriver.Text = pesanan.Driver.Nama;
+            if (pesananFood != null)
+                labelNamaDriver.Text = pesananFood.Driver.Nama;
         }
 
         private void buttonReport_Click(object sender, EventArgs e)

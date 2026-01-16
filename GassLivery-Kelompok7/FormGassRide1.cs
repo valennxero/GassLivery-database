@@ -21,6 +21,7 @@ namespace GassLivery_Kelompok7
         bool reqMotorBaru;
         private void FormGassRide1_Load(object sender, EventArgs e)
         {
+            groupBoxPesan.Visible = true;
             List<Lokasi> listLokasi = Lokasi.BacaData("", "");
             comboBoxLokasiAwal.DataSource = listLokasi;
             List<Lokasi> listLokasi1 = Lokasi.BacaData("", "");
@@ -35,7 +36,6 @@ namespace GassLivery_Kelompok7
                 checkBoxDriverWanita.Visible = false;
                 reqWanita = false;
             }
-            groupBoxPesan.Visible = false;
         }
         Jarak jarakLokasi;
         private void buttonCekHarga_Click(object sender, EventArgs e)
@@ -43,14 +43,19 @@ namespace GassLivery_Kelompok7
             try
             {
                 buttonPesan.Visible = true;
-                groupBoxPesan.Visible = true;
-
                 Lokasi awal = Lokasi.BacaData("nama", comboBoxLokasiAwal.Text)[0];
                 Lokasi akhir = Lokasi.BacaData("nama", comboBoxLokasiAkhir.Text)[0];
                 jarakLokasi = Jarak.BacaData(awal, akhir)[0];
                 labelJarak.Text = jarakLokasi.JarakKM.ToString();
-                Waktu waktu = Waktu.BacaData(DateTime.Now.Hour)[0];
-
+                Waktu waktu;
+                if (radioButtonSekarang.Checked)
+                {
+                    waktu = Waktu.BacaData(DateTime.Now.Hour)[0];
+                }
+                else
+                {
+                    waktu = Waktu.BacaData(dateTimePickerJam.Value.Hour)[0];
+                }
                 int biayaDriverWanita = 0;
                 if (checkBoxDriverWanita.Checked)
                 {
@@ -102,42 +107,8 @@ namespace GassLivery_Kelompok7
                 else
                 {
                     this.Visible = false;
-                    if (checkBoxPoin.Checked == true)
-                    {
-                        //logic pakai poin, kurangi biaya sesuai poin yang ada dengan kelipatan 5000
-                        int maxPotongan =biaya - ( biaya % 5000);
-                        int poinTersedia = sisaPoin - (sisaPoin % 5000);
-                        int poinDipakai = Math.Min(maxPotongan, poinTersedia);
-                        if (poinDipakai < 5000)
-                        {
-                            poinDipakai = 0;
-                        }
-
-                        if ((biaya-poinDipakai) <= sisaSaldo)
-                        {
-                            //Bayar
-                            MessageBox.Show("Pembayaran anda berhasil, poin akan terpotong " + biaya);
-                            //kurangi poin pada database
-                            Gassmon.BayarPakaiPoin(poinDipakai, frm.userLogin);
-                            //kurangi saldo pada database
-                            Gassmon.BayarPakaiSaldo(biaya-poinDipakai, frm.userLogin);
-                        }
-                    }
-                    else
-                    {
-                        if (biaya <= sisaSaldo && biaya > sisaPoin || biaya <= sisaSaldo && biaya <= sisaPoin)
-                        {
-                            MessageBox.Show("Pembayaran anda berhasil, saldo akan terpotong " + biaya);
-                            Gassmon.BayarPakaiSaldo(biaya, frm.userLogin);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Pembayaran anda berhasil, poin akan terpotong " + biaya);
-                            Gassmon.BayarPakaiPoin(biaya, frm.userLogin);
-                        }
-                    }
+                    Gassmon.Bayar(checkBoxPoin.Checked, biaya, sisaPoin, sisaSaldo, frm.userLogin);
                     //buat pesanan
-                    //nt biayaTransaksi = int.Parse(labelHarga.Text);
                     double tip = biaya * 0.2;
                     User konsumen = frm.userLogin;
                     Driver newDriver = Driver.PanggilDriver(reqWanita, reqMotorBaru);
