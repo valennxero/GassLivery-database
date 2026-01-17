@@ -34,24 +34,30 @@ namespace backend_lib
         public double Usia { get => usia; set => usia = value; }
         public string PlatNomor { get => platNomor; set => platNomor = value; }
 
-        public static Motor BacaDataMotor(int pId)
+        public static List<Motor> BacaDataMotor(int pId)
         {
-            string perintah = "select * from motor where idMotor = " + pId;
+            string perintah = "";
+            if (pId == 0)
+            {
+                perintah = "select * from motor";
+            }
+            else
+            {
+                perintah = "select * from motor where idMotor = " + pId;
+            }
             MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
-            if (hasil.Read())
+            List<Motor> listMotor = new List<Motor>();
+            while (hasil.Read())
             {
                 Motor m = new Motor();
                 m.Id = hasil.GetInt32(0);
                 m.Nama = hasil.GetValue(1).ToString();
                 m.Usia = hasil.GetInt32(2);
-                m.PlatNomor = hasil.GetValue(4).ToString();
-                hasil.Close();
-                return m;
+                m.PlatNomor = hasil.GetValue(4).ToString(); 
+                listMotor.Add(m);
             }
-            else
-            {
-                return null;
-            }
+            hasil.Close();
+            return listMotor;
         }
     }
 }

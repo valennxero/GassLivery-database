@@ -110,7 +110,7 @@ namespace backend_lib
             {
                 int idKonsumen = hasil.GetInt32("konsumenId");
                 User user = User.BacaData("id", idKonsumen.ToString());
-                Driver driver = Driver.BacaData(hasil.GetInt32("driverId"));
+                Driver driver = Driver.BacaData("idDriver",hasil.GetInt32("driverId"));
                 Waktu waktu = Waktu.BacaDataWaktu(hasil.GetInt32("waktuId"));
                 Jarak jarak = Jarak.BacaDataJarak(hasil.GetInt32("jarakId"));
                 Tenant tenant = Tenant.BacaData("idTenant", hasil.GetInt32("tenantId").ToString())[0];

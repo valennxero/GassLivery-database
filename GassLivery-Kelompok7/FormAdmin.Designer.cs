@@ -30,13 +30,15 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.daftarMotorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cekLaporanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.daftarMotorToolStripMenuItem});
+            this.daftarMotorToolStripMenuItem,
+            this.cekLaporanToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(387, 24);
@@ -48,6 +50,14 @@
             this.daftarMotorToolStripMenuItem.Name = "daftarMotorToolStripMenuItem";
             this.daftarMotorToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.daftarMotorToolStripMenuItem.Text = "Daftar Motor";
+            this.daftarMotorToolStripMenuItem.Click += new System.EventHandler(this.daftarMotorToolStripMenuItem_Click);
+            // 
+            // cekLaporanToolStripMenuItem
+            // 
+            this.cekLaporanToolStripMenuItem.Name = "cekLaporanToolStripMenuItem";
+            this.cekLaporanToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
+            this.cekLaporanToolStripMenuItem.Text = "Cek Laporan";
+            this.cekLaporanToolStripMenuItem.Click += new System.EventHandler(this.cekLaporanToolStripMenuItem_Click);
             // 
             // FormAdmin
             // 
@@ -58,6 +68,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormAdmin";
             this.Text = "FormAdmin";
+            this.Load += new System.EventHandler(this.FormAdmin_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -69,5 +80,6 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem daftarMotorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cekLaporanToolStripMenuItem;
     }
 }

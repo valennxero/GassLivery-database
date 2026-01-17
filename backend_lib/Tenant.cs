@@ -13,13 +13,17 @@ namespace backend_lib
         private string namaTenant;
         private Lokasi lokasiTenant;
         private double ratingTenant;
+        private string username;
+        private string password;
 
-        public Tenant(int id, string namaTenant, Lokasi lokasiTenant, double ratingTenant)
+        public Tenant(int id, string namaTenant, Lokasi lokasiTenant, double ratingTenant, string username, string password)
         {
             Id = id;
             NamaTenant = namaTenant;
             LokasiTenant = lokasiTenant;
             RatingTenant = ratingTenant;
+            Username = username;
+            Password = password;
         }
 
         public Tenant()
@@ -28,11 +32,15 @@ namespace backend_lib
             this.NamaTenant = "";
             this.lokasiTenant = null;
             this.RatingTenant = 0;
+            this.Username = "";
+            this.Password = "";
         }
         public int Id { get => id; set => id = value; }
         public string NamaTenant { get => namaTenant; set => namaTenant = value; }
         public Lokasi LokasiTenant { get => lokasiTenant; set => lokasiTenant = value; }
         public double RatingTenant { get => ratingTenant; set => ratingTenant = value; }
+        public string Username { get => username; set => username = value; }
+        public string Password { get => password; set => password = value; }
 
         public static List<Tenant> BacaData(string filter, string nilai)
         {
@@ -59,6 +67,8 @@ namespace backend_lib
                 t.NamaTenant = hasil.GetValue(1).ToString();
                 t.LokasiTenant = Lokasi.BacaDataLokasi(hasil.GetInt32(2));
                 t.RatingTenant = hasil.GetDouble(3);
+                t.Username = hasil.GetString(4).ToString();
+                t.Password = hasil.GetString(5).ToString();
                 ListData.Add(t);
             }
             hasil.Close();

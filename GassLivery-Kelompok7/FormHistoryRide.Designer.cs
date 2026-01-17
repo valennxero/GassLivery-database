@@ -106,6 +106,7 @@
             this.dateTimePickerAwal.Name = "dateTimePickerAwal";
             this.dateTimePickerAwal.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerAwal.TabIndex = 2;
+            this.dateTimePickerAwal.ValueChanged += new System.EventHandler(this.dateTimePickerAwal_ValueChanged);
             // 
             // label2
             // 
@@ -115,6 +116,7 @@
             this.label2.Size = new System.Drawing.Size(65, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Pilih Periode";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -124,6 +126,7 @@
             this.label3.Size = new System.Drawing.Size(23, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "s/d";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // dateTimePickerAkhir
             // 
@@ -131,6 +134,7 @@
             this.dateTimePickerAkhir.Name = "dateTimePickerAkhir";
             this.dateTimePickerAkhir.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerAkhir.TabIndex = 5;
+            this.dateTimePickerAkhir.ValueChanged += new System.EventHandler(this.dateTimePickerAkhir_ValueChanged);
             // 
             // buttonSearch
             // 

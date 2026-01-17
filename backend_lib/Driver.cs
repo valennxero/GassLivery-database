@@ -91,7 +91,7 @@ namespace backend_lib
                 d.Nama = hasil.GetValue(1).ToString();
                 d.Gender = hasil.GetValue(2).ToString();
                 d.Rating = hasil.GetDouble(3);
-                d.Motor = Motor.BacaDataMotor(hasil.GetInt32(4));
+                d.Motor = Motor.BacaDataMotor(hasil.GetInt32(4))[0];
                 d.StatusAktif = hasil.GetBoolean(5);
                 d.TotalPendapatan = hasil.GetInt32(6);
                 ListData.Add(d);
@@ -141,12 +141,23 @@ namespace backend_lib
                 return null;
             }
         }
-        public static Driver BacaData(int pId)
+        public static Driver BacaData(string filter, int pId)
         {
-            string perintah = "select m.idMotor, m.nama, m.usia, m.platNomor, d.idDriver, d.nama, d.gender, d.ratingTotal, d.statusAktif, d.totalPendapatan," +
-                "d.username, d.password " +
-                "from driver d join motor m on d.motorId = m.idMotor" +
-                " where d.IdDriver =" + pId;
+            string perintah = "";
+            if (filter == "IdDriver")
+            {
+                perintah = "select m.idMotor, m.nama, m.usia, m.platNomor, d.idDriver, d.nama, d.gender, d.ratingTotal, d.statusAktif, d.totalPendapatan," +
+                    "d.username, d.password " +
+                    "from driver d join motor m on d.motorId = m.idMotor" +
+                    " where d.IdDriver =" + pId;
+            }
+            else
+            {
+                perintah = "select m.idMotor, m.nama, m.usia, m.platNomor, d.idDriver, d.nama, d.gender, d.ratingTotal, d.statusAktif, d.totalPendapatan," +
+                    "d.username, d.password " +
+                    "from driver d join motor m on d.motorId = m.idMotor" +
+                    " where d.motorId =" + pId;
+            }
             MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
             if (hasil.Read())
             {
@@ -172,6 +183,12 @@ namespace backend_lib
             {
                 return null;
             }
+        }
+
+        public static void NonaktifkanDriver(Driver driver)
+        {
+            string perintah = $"update driver set statusAktif = false where idDriver = {driver.Id};";
+            Koneksi.JalankanQuery(perintah);
         }
     }
 }

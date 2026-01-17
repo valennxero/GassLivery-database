@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.cs" />
     <Compile Include="Cancel.cs" />
     <Compile Include="Driver.cs" />
     <Compile Include="FoodDetail.cs" />

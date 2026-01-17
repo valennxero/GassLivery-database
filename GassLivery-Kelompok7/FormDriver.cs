@@ -67,7 +67,7 @@ namespace GassLivery_Kelompok7
                 PenarikanDana.TarikDana(PenarikanDana);
                 MessageBox.Show("Penarikan dana berhasil dengan nominal Rp " + newValue);
                 //update label pendapatan
-                driverLogin =  Driver.BacaData(driverLogin.Id);
+                driverLogin =  Driver.BacaData("idDriver", driverLogin.Id);
                 labelPendapatan.Text = driverLogin.TotalPendapatan.ToString();
             }
             else

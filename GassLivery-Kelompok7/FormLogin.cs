@@ -54,9 +54,21 @@ namespace GassLivery_Kelompok7
                     this.Close();
                 }
             }
-            else
+            else if (comboBoxLogin.Text == "Admin")
             {
+                FormAdmin frm = new FormAdmin();
 
+                frm.adminLogin = Admin.CekLogin(uid, pwd);
+                if (frm.adminLogin is null)
+                {
+                    MessageBox.Show("Username atau password salah");
+                }
+                else
+                {
+                    frm.Owner = this;
+                    frm.ShowDialog();
+                    this.Close();
+                }
             }
         }
 

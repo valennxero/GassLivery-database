@@ -74,5 +74,25 @@ namespace GassLivery_Kelompok7
                 dataGridViewDataRiwayat.Rows.Add(id, tglOrder, biaya, namaDriver, honor);
             }
         }
+
+        private void dateTimePickerAkhir_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePickerAwal_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
