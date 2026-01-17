@@ -74,20 +74,20 @@ namespace backend_lib
             }
         }
 
-        public static User BacaData(string pUsername, int pId)
+        public static User BacaData(string filter, string nilai)
         {
             string perintah = "";
-            if (pUsername != "")
+            if (filter == "username")
             {
                 perintah = "select k.id, k.gender, k.nama, k.username, k.`password`, g.id, g.saldo, g.poin " +
                     "from konsumen k join `gass-mon` g on k.idGassmon = g.id" +
-                    " where username='" + pUsername + "';";
+                    " where username='" + nilai + "';";
             }
             else
             {
                 perintah = "select k.id, k.gender, k.nama, k.username, k.`password`, g.id, g.saldo, g.poin " +
                 "from konsumen k join `gass-mon` g on k.idGassmon = g.id" +
-                " where k.id='" + pId + "';";
+                " where k.id='" + int.Parse(nilai) + "';";
             }
             MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
             if (hasil.Read())

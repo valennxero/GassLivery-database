@@ -64,7 +64,7 @@ namespace GassLivery_Kelompok7
 
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
-            userLogin = User.BacaData(userLogin.Username, 0);
+            userLogin = User.BacaData("username",userLogin.Username);
             labelSaldo.Text = userLogin.IdGassmon.Saldo.ToString();
             labelPoin.Text = userLogin.IdGassmon.Poin.ToString();
         }

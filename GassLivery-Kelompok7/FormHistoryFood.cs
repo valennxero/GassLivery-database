@@ -26,11 +26,11 @@ namespace GassLivery_Kelompok7
         {
             if (userLogin != null)
             {
-                listOrder = OrderFood.BacaData(userLogin, 0, 0);
+                listOrder = OrderFood.BacaData("konsumenId", userLogin.Id);
             }
             else
             {
-                listOrder = OrderFood.BacaData(null, 0, driverLogin.Id);
+                listOrder = OrderFood.BacaData("driverId",driverLogin.Id);
             }
             for (int i = 0; i < listOrder.Count; i++)
             {
@@ -50,7 +50,7 @@ namespace GassLivery_Kelompok7
             if (e.ColumnIndex == dataGridViewDataRiwayat.Columns["Detail"].Index)
             {
                 int idOrder = (int)dataGridViewDataRiwayat.Rows[idx].Cells[0].Value;
-                FormNotaGassKan formNota = new FormNotaGassKan(OrderFood.BacaData(null, idOrder, 0)[0]);
+                FormNotaGassKan formNota = new FormNotaGassKan(OrderFood.BacaData("idOrderFood", idOrder)[0]);
                 formNota.ShowDialog();
             }
         }
