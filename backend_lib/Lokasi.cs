@@ -42,6 +42,7 @@ namespace backend_lib
                 Lokasi l = new Lokasi (hasil.GetInt32(0), hasil.GetValue(1).ToString());
                 ListData.Add(l);
             }
+            hasil.Close();
             return ListData;
         }
 

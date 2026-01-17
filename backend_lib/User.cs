@@ -103,6 +103,7 @@ namespace backend_lib
                 u.Username = hasil.GetValue(3).ToString();
                 u.Password = hasil.GetValue(4).ToString();
                 u.IdGassmon = g;
+                hasil.Close();
                 return u;
             }
             else

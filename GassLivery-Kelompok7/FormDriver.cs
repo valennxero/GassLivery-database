@@ -33,6 +33,10 @@ namespace GassLivery_Kelompok7
                 numericUpDownNominal.Increment = kelipatan;
                 numericUpDownNominal.Maximum = driverLogin.TotalPendapatan;
                 pendapatan = driverLogin.TotalPendapatan;
+                if(driverLogin.Motor.Usia > 5)
+                {
+                    MessageBox.Show("Motor Anda sudah lebih dari 5 tahun, pertimbangkan untuk ganti motor baru!");
+                }
             }
             catch (Exception ex)
             {

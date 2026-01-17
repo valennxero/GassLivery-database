@@ -48,6 +48,7 @@ namespace backend_lib
                     );
                 listPenarikan.Add(pd);
             }
+            hasil.Close();
             return listPenarikan;
         }
 

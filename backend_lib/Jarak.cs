@@ -33,6 +33,7 @@ namespace backend_lib
                 j.LokasiAkhir = lAkhir;
                 ListData.Add(j);
             }
+            hasil.Close();
             return ListData;
         }
 

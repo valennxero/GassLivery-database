@@ -59,6 +59,7 @@ namespace backend_lib
                     );
                 listFd.Add(fd);
             }
+            hasil.Close();
             return listFd;
         }
     }

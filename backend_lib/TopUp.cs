@@ -40,6 +40,7 @@ namespace backend_lib
                 TopUp t = new TopUp(hasil.GetDateTime("tanggal"), hasil.GetInt32("nominal"), gassmon);
                 ListData.Add(t);
             }
+            hasil.Close();
             return ListData;
         }
     }

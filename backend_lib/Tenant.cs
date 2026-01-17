@@ -61,6 +61,7 @@ namespace backend_lib
                 t.RatingTenant = hasil.GetDouble(3);
                 ListData.Add(t);
             }
+            hasil.Close();
             return ListData;
         }
         public override string ToString()

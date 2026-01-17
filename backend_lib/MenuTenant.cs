@@ -58,6 +58,7 @@ namespace backend_lib
                     );
                 ListData.Add(m);
             }
+            hasil.Close();
             return ListData;
         }
     }

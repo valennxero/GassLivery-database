@@ -61,12 +61,12 @@ namespace backend_lib
                 //Wanita juga.
                 if (!reqMotorBaru)
                 {
-                    perintah = "select * from driver where gender = 'female'";
+                    perintah = "select * from driver where gender = 'female' and statusAktif = true";
                 }
                 else
                 {
                     perintah = "select * from driver d join motor m on d.motorId = m.idMotor" +
-                        " where d.gender = 'Female' and m.usia < 3;";
+                        " where d.gender = 'Female' and m.usia < 3 and d.statusAktif = true;";
                 }
             }
             else
@@ -77,10 +77,10 @@ namespace backend_lib
                     //dapat menginputkan permintaan motor baru.Motor baru adalah motor yang berusia
                     //kurang dari 3 tahun.
                     perintah = "select * from driver d join motor m on d.motorId = m.idMotor" +
-                        " where m.usia < 3;";
+                        " where m.usia < 3 and statusAktif = true;";
                 }
                 else
-                    perintah = "select * from driver";
+                    perintah = "select * from driver where statusAktif = true";
             }
             MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
             List<Driver> ListData = new List<Driver>();
@@ -98,6 +98,7 @@ namespace backend_lib
             }
             //pilih acak driver dari list
             Driver SelectDriver = ListData[rant.Next(ListData.Count)];
+            hasil.Close();
             return SelectDriver;
         }
 
@@ -132,6 +133,7 @@ namespace backend_lib
                 d.Username = hasil.GetValue(10).ToString();
                 d.Password =hasil.GetValue(11).ToString();
                 d.Motor = m;
+                hasil.Close();
                 return d;
             }
             else
