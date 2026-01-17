@@ -88,26 +88,28 @@ namespace backend_lib
             Koneksi.JalankanQuery(perintah);
         }
 
-        public static List<OrderFood> BacaData(User pUser, int pIdOrder, int pDriverId)
+        public static List<OrderFood> BacaData(string filter, int nilai)
         {
             string perintah = "";
-            if (pUser != null)
+            if (filter == "konsumenId")
             {
-                perintah = $"select * from orderFood where konsumenId = {pUser.Id};";
+                perintah = $"select * from orderFood where konsumenId = {nilai};";
             }
-            if(pIdOrder != 0)
+            else if(filter == "idOrderFood")
             {
-                perintah = $"select * from orderFood where idOrderFood = {pIdOrder};";
+                perintah = $"select * from orderFood where idOrderFood = {nilai};";
             }
-            if(pDriverId != 0)
+            else
             {
-                perintah = $"select * from orderFood where driverId = {pDriverId};";
+                perintah = $"select * from orderFood where driverId = {nilai};";
             }
             MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
 
             List<OrderFood> listOrder = new List<OrderFood>();
             while (hasil.Read())
             {
+                int idKonsumen = hasil.GetInt32("konsumenId");
+                User user = User.BacaData("id", idKonsumen.ToString());
                 Driver driver = Driver.BacaData(hasil.GetInt32("driverId"));
                 Waktu waktu = Waktu.BacaDataWaktu(hasil.GetInt32("waktuId"));
                 Jarak jarak = Jarak.BacaDataJarak(hasil.GetInt32("jarakId"));
@@ -120,7 +122,7 @@ namespace backend_lib
                     hasil.GetInt32("ongkir"),//Ongkir = ongkir;
                     hasil.GetDouble("tips"),//Tip = tip;
                     driver,//Driver = driver;
-                    pUser,//Konsumen = konsumen;
+                    user,//Konsumen = konsumen;
                     waktu,//Waktu = waktu;
                     jarak,//Jarak = jarak;
                     hasil.GetBoolean("statusSelesai"),//StatusSelesai = statusSelesai;

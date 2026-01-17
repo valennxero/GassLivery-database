@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -96,20 +97,20 @@ namespace backend_lib
             string perintah = $"update `gass-mon` set saldo = saldo + {nilai} where id = {user.IdGassmon.Id}; ";
             Koneksi.JalankanQuery(perintah);
         }
-        public static List<OrderRide> BacaData(User pUser, int pIdNota, int pDriverId)
-        {
+        public static List<OrderRide> BacaData(string filter, int nilai)
+        {           
             string perintah = "";
-            if (pUser != null)
+            if (filter == "konsumenId")
             {
-                perintah = $"SELECT * FROM orderRide WHERE konsumenId = {pUser.Id};";
+                perintah = $"SELECT * FROM orderRide WHERE konsumenId = {nilai};";
             }
-            if(pIdNota != 0)
+            else if(filter == "idOrderRide")
             {
-                perintah = $"SELECT * FROM orderRide WHERE idOrderRide = {pIdNota};";
+                perintah = $"SELECT * FROM orderRide WHERE idOrderRide = {nilai};";
             }
-            if (pDriverId != 0)
+            else
             {
-                perintah = $"SELECT * FROM orderRide WHERE driverId = {pDriverId};";
+                perintah = $"SELECT * FROM orderRide WHERE driverId = {nilai};";
             }
             MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
 
@@ -119,6 +120,7 @@ namespace backend_lib
             {
                 int idOrder = hasil.GetInt32("idOrderRide");
                 double tips = hasil.GetDouble("tips");
+                int idKonsumen = hasil.GetInt32("konsumenId");
                 int driverId = hasil.GetInt32("driverId");
                 int waktuId = hasil.GetInt32("waktuId");
                 int jarakId = hasil.GetInt32("jarakId");
@@ -132,7 +134,7 @@ namespace backend_lib
                 OrderRide o = new OrderRide(
                     idOrder,
                     tips,
-                    pUser,
+                    User.BacaData("id", idKonsumen.ToString()),
                     Driver.BacaData(driverId),
                     Waktu.BacaDataWaktu(waktuId),
                     Jarak.BacaDataJarak(jarakId),
