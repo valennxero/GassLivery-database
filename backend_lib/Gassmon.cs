@@ -39,6 +39,7 @@ namespace backend_lib
             if (hasil.Read())
             {
                 Gassmon g = new Gassmon(hasil.GetInt32(0), hasil.GetInt32(1), hasil.GetInt32(2));
+                hasil.Close();
                 return g;
             }
             else
