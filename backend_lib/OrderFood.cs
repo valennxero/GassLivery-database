@@ -99,11 +99,15 @@ namespace backend_lib
             {
                 perintah = $"select * from orderFood where idOrderFood = {nilai};";
             }
-            else
+            else if (filter == "driverId")
             {
                 perintah = $"select * from orderFood where driverId = {nilai};";
             }
-            MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
+            else
+            {
+                perintah = "select * from orderFood;";
+            }
+                MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
 
             List<OrderFood> listOrder = new List<OrderFood>();
             while (hasil.Read())

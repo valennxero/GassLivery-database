@@ -31,19 +31,23 @@ namespace GassLivery_Kelompok7
             {
                 listOrder = OrderRide.BacaData("konsumenId", userLogin.Id);
             }
-            else
+            else if (driverLogin != null)
             {
                 listOrder = OrderRide.BacaData("driverd", driverLogin.Id);
             }
-            for (int i = 0; i < listOrder.Count; i++)
+            else
             {
-                int id = listOrder[i].Id;
-                DateTime tglOrder = listOrder[i].TanggalOrder;
-                int biaya = listOrder[i].TotalTransaksi;
-                string namaDriver = listOrder[i].Driver.Nama;
-                double honor = listOrder[i].Tip;
-                dataGridViewDataRiwayat.Rows.Add(id, tglOrder, biaya, namaDriver, honor);
+                listOrder = OrderRide.BacaData("", 0);
             }
+                for (int i = 0; i < listOrder.Count; i++)
+                {
+                    int id = listOrder[i].Id;
+                    DateTime tglOrder = listOrder[i].TanggalOrder;
+                    int biaya = listOrder[i].TotalTransaksi;
+                    string namaDriver = listOrder[i].Driver.Nama;
+                    double honor = listOrder[i].Tip;
+                    dataGridViewDataRiwayat.Rows.Add(id, tglOrder, biaya, namaDriver, honor);
+                }
         }
 
         private void dataGridViewDataRiwayat_CellContentClick(object sender, DataGridViewCellEventArgs e)

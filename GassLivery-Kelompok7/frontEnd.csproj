@@ -62,6 +62,12 @@
     <Compile Include="FormCancel.Designer.cs">
       <DependentUpon>FormCancel.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDaftarCancel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDaftarCancel.Designer.cs">
+      <DependentUpon>FormDaftarCancel.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDaftarMotor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormCancel.resx">
       <DependentUpon>FormCancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDaftarCancel.resx">
+      <DependentUpon>FormDaftarCancel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarMotor.resx">
       <DependentUpon>FormDaftarMotor.cs</DependentUpon>

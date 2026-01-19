@@ -28,9 +28,13 @@ namespace GassLivery_Kelompok7
             {
                 listOrder = OrderFood.BacaData("konsumenId", userLogin.Id);
             }
-            else
+            else if (driverLogin!= null)
             {
                 listOrder = OrderFood.BacaData("driverId",driverLogin.Id);
+            }
+            else
+            {
+                listOrder = OrderFood.BacaData("", 0);
             }
             for (int i = 0; i < listOrder.Count; i++)
             {

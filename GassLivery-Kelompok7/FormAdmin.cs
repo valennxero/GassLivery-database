@@ -26,7 +26,6 @@ namespace GassLivery_Kelompok7
         private void cekLaporanToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormDaftarReport formDaftarReport = new FormDaftarReport();
-            formDaftarReport.adminLogin = this.adminLogin;
             formDaftarReport.ShowDialog();
         }
 
@@ -34,6 +33,24 @@ namespace GassLivery_Kelompok7
         {
             FormDaftarMotor formDaftarMotor = new FormDaftarMotor();
             formDaftarMotor.ShowDialog();
+        }
+
+        private void gassRideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormHistoryRide formHistoryRide = new FormHistoryRide(null, null);
+            formHistoryRide.ShowDialog();
+        }
+
+        private void gassKanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormHistoryFood formHistoryFood = new FormHistoryFood(null, null);
+            formHistoryFood.ShowDialog();
+        }
+
+        private void cancelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormDaftarCancel formDaftarCancel = new FormDaftarCancel();
+            formDaftarCancel.ShowDialog();
         }
     }
 }

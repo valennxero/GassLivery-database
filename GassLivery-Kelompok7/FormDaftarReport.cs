@@ -14,7 +14,6 @@ namespace GassLivery_Kelompok7
 {
     public partial class FormDaftarReport : Form
     {
-        public Admin adminLogin;
         public FormDaftarReport()
         {
             InitializeComponent();

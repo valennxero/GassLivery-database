@@ -108,9 +108,13 @@ namespace backend_lib
             {
                 perintah = $"SELECT * FROM orderRide WHERE idOrderRide = {nilai};";
             }
-            else
+            else if(filter == "driverId")
             {
                 perintah = $"SELECT * FROM orderRide WHERE driverId = {nilai};";
+            }
+            else
+            {
+                perintah = "SELECT * FROM orderRide;";
             }
             MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
 

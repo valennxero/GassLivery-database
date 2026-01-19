@@ -31,6 +31,11 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.daftarMotorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cekLaporanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transaksiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gassRideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gassKanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gassSendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cancelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -38,7 +43,9 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.daftarMotorToolStripMenuItem,
-            this.cekLaporanToolStripMenuItem});
+            this.cekLaporanToolStripMenuItem,
+            this.transaksiToolStripMenuItem,
+            this.cancelToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(387, 24);
@@ -58,6 +65,43 @@
             this.cekLaporanToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
             this.cekLaporanToolStripMenuItem.Text = "Cek Laporan";
             this.cekLaporanToolStripMenuItem.Click += new System.EventHandler(this.cekLaporanToolStripMenuItem_Click);
+            // 
+            // transaksiToolStripMenuItem
+            // 
+            this.transaksiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gassRideToolStripMenuItem,
+            this.gassKanToolStripMenuItem,
+            this.gassSendToolStripMenuItem});
+            this.transaksiToolStripMenuItem.Name = "transaksiToolStripMenuItem";
+            this.transaksiToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.transaksiToolStripMenuItem.Text = "Transaksi";
+            // 
+            // gassRideToolStripMenuItem
+            // 
+            this.gassRideToolStripMenuItem.Name = "gassRideToolStripMenuItem";
+            this.gassRideToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gassRideToolStripMenuItem.Text = "GassRide";
+            this.gassRideToolStripMenuItem.Click += new System.EventHandler(this.gassRideToolStripMenuItem_Click);
+            // 
+            // gassKanToolStripMenuItem
+            // 
+            this.gassKanToolStripMenuItem.Name = "gassKanToolStripMenuItem";
+            this.gassKanToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gassKanToolStripMenuItem.Text = "GassKan";
+            this.gassKanToolStripMenuItem.Click += new System.EventHandler(this.gassKanToolStripMenuItem_Click);
+            // 
+            // gassSendToolStripMenuItem
+            // 
+            this.gassSendToolStripMenuItem.Name = "gassSendToolStripMenuItem";
+            this.gassSendToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gassSendToolStripMenuItem.Text = "GassSend";
+            // 
+            // cancelToolStripMenuItem
+            // 
+            this.cancelToolStripMenuItem.Name = "cancelToolStripMenuItem";
+            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.cancelToolStripMenuItem.Text = "Cancel";
+            this.cancelToolStripMenuItem.Click += new System.EventHandler(this.cancelToolStripMenuItem_Click);
             // 
             // FormAdmin
             // 
@@ -81,5 +125,10 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem daftarMotorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cekLaporanToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem transaksiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gassRideToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gassKanToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gassSendToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cancelToolStripMenuItem;
     }
 }
