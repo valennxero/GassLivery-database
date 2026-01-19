@@ -32,7 +32,7 @@
             this.dataGridViewMotor = new System.Windows.Forms.DataGridView();
             this.IdMotor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nama = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Owner = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OwnerMotor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdOwner = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Usia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Plat = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,7 +55,7 @@
             this.dataGridViewMotor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdMotor,
             this.Nama,
-            this.Owner,
+            this.OwnerMotor,
             this.IdOwner,
             this.Usia,
             this.Plat,
@@ -76,10 +76,10 @@
             this.Nama.HeaderText = "Nama";
             this.Nama.Name = "Nama";
             // 
-            // Owner
+            // OwnerMotor
             // 
-            this.Owner.HeaderText = "Owner";
-            this.Owner.Name = "Owner";
+            this.OwnerMotor.HeaderText = "Owner";
+            this.OwnerMotor.Name = "OwnerMotor";
             // 
             // IdOwner
             // 
@@ -125,7 +125,7 @@
         private System.Windows.Forms.DataGridView dataGridViewMotor;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdMotor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nama;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Owner;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OwnerMotor;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdOwner;
         private System.Windows.Forms.DataGridViewTextBoxColumn Usia;
         private System.Windows.Forms.DataGridViewTextBoxColumn Plat;

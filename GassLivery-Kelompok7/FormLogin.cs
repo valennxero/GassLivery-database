@@ -70,6 +70,21 @@ namespace GassLivery_Kelompok7
                     this.Close();
                 }
             }
+            else
+            {
+                FormTenant frm = new FormTenant();
+                frm.tenantLogin = Tenant.CekLogin(uid, pwd);
+                if (frm.tenantLogin is null)
+                {
+                    MessageBox.Show("Username atau password salah");
+                }
+                else
+                {
+                    frm.Owner = this;
+                    frm.ShowDialog();
+                    this.Close();
+                }
+            }
         }
 
         private void buttonSignUp_Click(object sender, EventArgs e)
