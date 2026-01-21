@@ -34,7 +34,6 @@
             this.transaksiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gassRideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gassKanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gassSendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -70,10 +69,9 @@
             // 
             this.transaksiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gassRideToolStripMenuItem,
-            this.gassKanToolStripMenuItem,
-            this.gassSendToolStripMenuItem});
+            this.gassKanToolStripMenuItem});
             this.transaksiToolStripMenuItem.Name = "transaksiToolStripMenuItem";
-            this.transaksiToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.transaksiToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.transaksiToolStripMenuItem.Text = "Transaksi";
             // 
             // gassRideToolStripMenuItem
@@ -89,13 +87,6 @@
             this.gassKanToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gassKanToolStripMenuItem.Text = "GassKan";
             this.gassKanToolStripMenuItem.Click += new System.EventHandler(this.gassKanToolStripMenuItem_Click);
-            // 
-            // gassSendToolStripMenuItem
-            // 
-            this.gassSendToolStripMenuItem.Name = "gassSendToolStripMenuItem";
-            this.gassSendToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.gassSendToolStripMenuItem.Text = "GassSend";
-            this.gassSendToolStripMenuItem.Click += new System.EventHandler(this.gassSendToolStripMenuItem_Click);
             // 
             // cancelToolStripMenuItem
             // 
@@ -129,7 +120,6 @@
         private System.Windows.Forms.ToolStripMenuItem transaksiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gassRideToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gassKanToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gassSendToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cancelToolStripMenuItem;
     }
 }

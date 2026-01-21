@@ -13,15 +13,22 @@ namespace backend_lib
     {
         private int id;
         private string nama;
+        private double latitude;
+        private double longitude;
 
-        public Lokasi(int pId, string pNama)
+        public Lokasi(int pId, string pNama, double latitude, double longitude)
         {
             this.Id = pId;
             this.Nama = pNama;
+            this.Latitude = latitude;
+            this.Longitude = longitude;
+
         }
 
         public int Id { get => id; set => id = value; }
         public string Nama { get => nama; set => nama = value; }
+        public double Latitude { get => latitude; set => latitude = value; }
+        public double Longitude { get => longitude; set => longitude = value; }
 
         public static List<Lokasi> BacaData(string filter, string nilai)
         {
@@ -39,7 +46,7 @@ namespace backend_lib
             List<Lokasi> ListData = new List<Lokasi>();
             while (hasil.Read() == true)
             {
-                Lokasi l = new Lokasi (hasil.GetInt32(0), hasil.GetValue(1).ToString());
+                Lokasi l = new Lokasi (hasil.GetInt32(0), hasil.GetValue(1).ToString(), hasil.GetDouble(2), hasil.GetDouble(3));
                 ListData.Add(l);
             }
             hasil.Close();
@@ -52,7 +59,7 @@ namespace backend_lib
             MySqlDataReader hasil = Koneksi.JalankanPerintahSelect(perintah);
             if (hasil.Read() == true)
             {
-                Lokasi l = new Lokasi(hasil.GetInt32(0), hasil.GetValue(1).ToString());
+                Lokasi l = new Lokasi(hasil.GetInt32(0), hasil.GetValue(1).ToString(), hasil.GetDouble(2), hasil.GetDouble(3));
                 hasil.Close();
                 return l;
             }
