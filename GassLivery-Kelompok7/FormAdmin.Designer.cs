@@ -73,7 +73,7 @@
             this.gassKanToolStripMenuItem,
             this.gassSendToolStripMenuItem});
             this.transaksiToolStripMenuItem.Name = "transaksiToolStripMenuItem";
-            this.transaksiToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.transaksiToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.transaksiToolStripMenuItem.Text = "Transaksi";
             // 
             // gassRideToolStripMenuItem
@@ -95,6 +95,7 @@
             this.gassSendToolStripMenuItem.Name = "gassSendToolStripMenuItem";
             this.gassSendToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gassSendToolStripMenuItem.Text = "GassSend";
+            this.gassSendToolStripMenuItem.Click += new System.EventHandler(this.gassSendToolStripMenuItem_Click);
             // 
             // cancelToolStripMenuItem
             // 

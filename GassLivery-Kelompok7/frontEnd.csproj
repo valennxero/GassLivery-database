@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -134,6 +134,12 @@
     <Compile Include="FormHistoryRide.Designer.cs">
       <DependentUpon>FormHistoryRide.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormHistorySend.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHistorySend.Designer.cs">
+      <DependentUpon>FormHistorySend.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormHistoryTopUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormHistoryRide.resx">
       <DependentUpon>FormHistoryRide.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHistorySend.resx">
+      <DependentUpon>FormHistorySend.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormHistoryTopUp.resx">
       <DependentUpon>FormHistoryTopUp.cs</DependentUpon>

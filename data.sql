@@ -100,7 +100,7 @@ CREATE TABLE `driver` (
 
 LOCK TABLES `driver` WRITE;
 /*!40000 ALTER TABLE `driver` DISABLE KEYS */;
-INSERT INTO `driver` VALUES (1,'supri','Male',4.666666666,1,1,600,'supri','123'),(2,'melati','Female',4.2,2,1,13810,'melati','321'),(3,'mita','Female',4.421052631,3,1,1314550,'mita','123');
+INSERT INTO `driver` VALUES (1,'supri','Male',4.5,1,1,5600,'supri','123'),(2,'melati','Female',4.333333333,2,1,17560,'melati','321'),(3,'mita','Female',4.421052631,3,1,1314550,'mita','123');
 /*!40000 ALTER TABLE `driver` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -125,7 +125,7 @@ CREATE TABLE `gass-mon` (
 
 LOCK TABLES `gass-mon` WRITE;
 /*!40000 ALTER TABLE `gass-mon` DISABLE KEYS */;
-INSERT INTO `gass-mon` VALUES (1,98888460,1850),(2,0,0),(11,0,0),(12,0,0),(13,0,0),(14,0,0),(15,0,0),(16,0,0),(17,0,0),(18,0,0),(19,0,0),(20,0,0),(21,0,0),(22,0,0),(23,0,0),(24,0,0),(25,0,0),(26,0,0),(27,0,0),(28,0,0),(29,0,0);
+INSERT INTO `gass-mon` VALUES (1,98774710,2730),(2,0,0),(11,0,0),(12,0,0),(13,0,0),(14,0,0),(15,0,0),(16,0,0),(17,0,0),(18,0,0),(19,0,0),(20,0,0),(21,0,0),(22,0,0),(23,0,0),(24,0,0),(25,0,0),(26,0,0),(27,0,0),(28,0,0),(29,0,0);
 /*!40000 ALTER TABLE `gass-mon` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -294,7 +294,7 @@ CREATE TABLE `notafooddetail` (
   KEY `fk_NotaFoodDetail_Menu1_idx` (`menuId`),
   CONSTRAINT `fk_NotaFoodDetail_Menu1` FOREIGN KEY (`menuId`) REFERENCES `menu` (`idMenu`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_NotaGassDetail_OrderFood1` FOREIGN KEY (`orderFoodId`) REFERENCES `orderfood` (`idOrderFood`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -303,7 +303,7 @@ CREATE TABLE `notafooddetail` (
 
 LOCK TABLES `notafooddetail` WRITE;
 /*!40000 ALTER TABLE `notafooddetail` DISABLE KEYS */;
-INSERT INTO `notafooddetail` VALUES (1,10000,1,5,1),(2,10000,3,9,1),(3,15000,2,9,2),(4,10000,1,10,1),(5,15000,1,10,2),(6,10000,1,11,1),(7,15000,1,11,2),(8,10000,1,12,1),(9,15000,2,12,2),(10,10000,2,13,1),(11,10000,1,14,1),(12,15000,2,14,2),(13,10000,1,15,1),(14,15000,5,15,2),(15,10000,2,16,1),(16,15000,2,16,2),(17,10000,1,17,1),(18,15000,1,17,2),(19,15000,2,18,2),(20,10000,1,18,1),(21,10000,1,19,1),(22,15000,3,20,2),(23,10000,1,21,1),(24,15000,3,21,2),(25,12000,1,22,4),(26,8000,2,22,3);
+INSERT INTO `notafooddetail` VALUES (1,10000,1,5,1),(2,10000,3,9,1),(3,15000,2,9,2),(4,10000,1,10,1),(5,15000,1,10,2),(6,10000,1,11,1),(7,15000,1,11,2),(8,10000,1,12,1),(9,15000,2,12,2),(10,10000,2,13,1),(11,10000,1,14,1),(12,15000,2,14,2),(13,10000,1,15,1),(14,15000,5,15,2),(15,10000,2,16,1),(16,15000,2,16,2),(17,10000,1,17,1),(18,15000,1,17,2),(19,15000,2,18,2),(20,10000,1,18,1),(21,10000,1,19,1),(22,15000,3,20,2),(23,10000,1,21,1),(24,15000,3,21,2),(25,12000,1,22,4),(26,8000,2,22,3),(27,10000,3,23,1),(28,15000,1,23,2);
 /*!40000 ALTER TABLE `notafooddetail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -340,7 +340,7 @@ CREATE TABLE `orderfood` (
   CONSTRAINT `fk_OrderFood_Konsumen1` FOREIGN KEY (`konsumenId`) REFERENCES `konsumen` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_OrderFood_Tenant1` FOREIGN KEY (`tenantId`) REFERENCES `tenant` (`idTenant`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_OrderFood_Waktu1` FOREIGN KEY (`waktuId`) REFERENCES `waktu` (`idWaktu`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -349,8 +349,48 @@ CREATE TABLE `orderfood` (
 
 LOCK TABLES `orderfood` WRITE;
 /*!40000 ALTER TABLE `orderfood` DISABLE KEYS */;
-INSERT INTO `orderfood` VALUES (3,'2026-01-16 00:36:58',3000,600,3,1,6,2,NULL,0,38000,1),(4,'2026-01-16 14:37:28',3000,600,2,1,8,2,NULL,0,38000,1),(5,'2026-01-16 15:10:54',3000,600,2,1,8,2,NULL,0,13000,1),(6,'2026-01-16 16:19:36',3000,600,3,1,8,2,NULL,1,3000,1),(7,'2026-01-16 16:21:36',3000,600,3,1,8,2,NULL,0,3000,1),(8,'2026-01-16 16:21:38',3000,600,1,1,8,2,NULL,0,3000,1),(9,'2026-01-16 16:21:51',3000,600,3,1,8,2,NULL,1,63000,1),(10,'2026-01-16 16:25:04',3000,600,3,1,8,2,NULL,1,28000,1),(11,'2026-01-16 16:36:45',3000,600,2,1,8,2,NULL,1,28000,1),(12,'2026-01-16 16:41:38',3000,600,1,1,8,2,NULL,1,43000,1),(13,'2026-01-16 17:44:15',7500,1500,3,1,9,1,NULL,1,27500,1),(14,'2026-01-16 17:52:38',7500,1500,3,1,9,1,NULL,1,47500,1),(15,'2026-01-16 21:25:52',3750,750,3,1,10,1,NULL,1,88750,1),(16,'2026-01-16 21:29:03',3750,750,3,1,10,1,NULL,1,53750,1),(17,'2026-01-16 21:38:02',3750,750,3,1,10,1,NULL,1,28750,1),(18,'2026-01-16 21:39:37',3750,750,3,1,10,1,NULL,1,43750,1),(19,'2026-01-16 23:34:11',3750,750,3,1,10,1,NULL,1,13750,1),(20,'2026-01-17 17:52:42',7500,1500,2,1,9,1,NULL,1,52500,1),(21,'2026-01-19 08:21:42',3750,750,3,1,6,1,NULL,1,58750,1),(22,'2026-01-19 09:03:50',3750,750,3,1,6,1,NULL,1,31750,2);
+INSERT INTO `orderfood` VALUES (3,'2026-01-16 00:36:58',3000,600,3,1,6,2,NULL,0,38000,1),(4,'2026-01-16 14:37:28',3000,600,2,1,8,2,NULL,0,38000,1),(5,'2026-01-16 15:10:54',3000,600,2,1,8,2,NULL,0,13000,1),(6,'2026-01-16 16:19:36',3000,600,3,1,8,2,NULL,1,3000,1),(7,'2026-01-16 16:21:36',3000,600,3,1,8,2,NULL,0,3000,1),(8,'2026-01-16 16:21:38',3000,600,1,1,8,2,NULL,0,3000,1),(9,'2026-01-16 16:21:51',3000,600,3,1,8,2,NULL,1,63000,1),(10,'2026-01-16 16:25:04',3000,600,3,1,8,2,NULL,1,28000,1),(11,'2026-01-16 16:36:45',3000,600,2,1,8,2,NULL,1,28000,1),(12,'2026-01-16 16:41:38',3000,600,1,1,8,2,NULL,1,43000,1),(13,'2026-01-16 17:44:15',7500,1500,3,1,9,1,NULL,1,27500,1),(14,'2026-01-16 17:52:38',7500,1500,3,1,9,1,NULL,1,47500,1),(15,'2026-01-16 21:25:52',3750,750,3,1,10,1,NULL,1,88750,1),(16,'2026-01-16 21:29:03',3750,750,3,1,10,1,NULL,1,53750,1),(17,'2026-01-16 21:38:02',3750,750,3,1,10,1,NULL,1,28750,1),(18,'2026-01-16 21:39:37',3750,750,3,1,10,1,NULL,1,43750,1),(19,'2026-01-16 23:34:11',3750,750,3,1,10,1,NULL,1,13750,1),(20,'2026-01-17 17:52:42',7500,1500,2,1,9,1,NULL,1,52500,1),(21,'2026-01-19 08:21:42',3750,750,3,1,6,1,NULL,1,58750,1),(22,'2026-01-19 09:03:50',3750,750,3,1,6,1,NULL,1,31750,2),(23,'2026-01-21 10:05:10',3750,750,2,1,6,1,NULL,1,48750,1);
 /*!40000 ALTER TABLE `orderfood` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ordergasssend`
+--
+
+DROP TABLE IF EXISTS `ordergasssend`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ordergasssend` (
+  `idOrderGassSend` int(11) NOT NULL AUTO_INCREMENT,
+  `tanggalOrder` datetime DEFAULT NULL,
+  `Konsumen_id` int(11) NOT NULL,
+  `Jarak_idJarak` int(11) NOT NULL,
+  `Waktu_idWaktu` int(11) NOT NULL,
+  `Driver_idDriver` int(11) NOT NULL,
+  `BeratBarang` int(11) DEFAULT NULL,
+  `tip` int(11) DEFAULT NULL,
+  `status` tinyint(4) DEFAULT NULL,
+  `totalHarga` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idOrderGassSend`),
+  KEY `fk_OrderGassSend_Konsumen1_idx` (`Konsumen_id`),
+  KEY `fk_OrderGassSend_Jarak1_idx` (`Jarak_idJarak`),
+  KEY `fk_OrderGassSend_Waktu1_idx` (`Waktu_idWaktu`),
+  KEY `fk_OrderGassSend_Driver1_idx` (`Driver_idDriver`),
+  CONSTRAINT `fk_OrderGassSend_Driver1` FOREIGN KEY (`Driver_idDriver`) REFERENCES `driver` (`idDriver`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_OrderGassSend_Jarak1` FOREIGN KEY (`Jarak_idJarak`) REFERENCES `jarak` (`idJarak`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_OrderGassSend_Konsumen1` FOREIGN KEY (`Konsumen_id`) REFERENCES `konsumen` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_OrderGassSend_Waktu1` FOREIGN KEY (`Waktu_idWaktu`) REFERENCES `waktu` (`idWaktu`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ordergasssend`
+--
+
+LOCK TABLES `ordergasssend` WRITE;
+/*!40000 ALTER TABLE `ordergasssend` DISABLE KEYS */;
+INSERT INTO `ordergasssend` VALUES (1,'2026-01-21 09:57:17',1,1,4,1,10,3000,0,10000),(2,'2026-01-21 09:59:57',1,1,4,1,20,5000,1,25000),(3,'2026-01-21 10:25:01',1,1,4,2,10,3000,1,15000);
+/*!40000 ALTER TABLE `ordergasssend` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -443,7 +483,7 @@ CREATE TABLE `rating` (
   KEY `fk_Konsumen_has_Driver_Konsumen1_idx` (`konsumenId`),
   CONSTRAINT `fk_Konsumen_has_Driver_Driver1` FOREIGN KEY (`driverId`) REFERENCES `driver` (`idDriver`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_Konsumen_has_Driver_Konsumen1` FOREIGN KEY (`konsumenId`) REFERENCES `konsumen` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -452,7 +492,7 @@ CREATE TABLE `rating` (
 
 LOCK TABLES `rating` WRITE;
 /*!40000 ALTER TABLE `rating` DISABLE KEYS */;
-INSERT INTO `rating` VALUES (1,1,1,5),(2,1,1,4),(3,1,2,1),(4,1,2,2),(5,1,2,5),(6,1,3,3),(7,1,2,5),(8,1,3,4),(9,1,2,5),(10,1,3,3),(11,1,3,5),(12,1,3,5),(13,1,3,5),(14,1,3,4),(15,1,3,5),(16,1,3,4),(17,1,2,4),(18,1,3,5),(19,1,3,5),(20,1,2,5),(21,1,1,5),(22,1,3,4),(23,1,3,5),(24,1,3,5),(25,1,3,2),(26,1,3,5),(27,1,2,5),(28,1,3,5),(29,1,2,5),(30,1,2,5),(31,1,3,5),(32,1,3,5);
+INSERT INTO `rating` VALUES (1,1,1,5),(2,1,1,4),(3,1,2,1),(4,1,2,2),(5,1,2,5),(6,1,3,3),(7,1,2,5),(8,1,3,4),(9,1,2,5),(10,1,3,3),(11,1,3,5),(12,1,3,5),(13,1,3,5),(14,1,3,4),(15,1,3,5),(16,1,3,4),(17,1,2,4),(18,1,3,5),(19,1,3,5),(20,1,2,5),(21,1,1,5),(22,1,3,4),(23,1,3,5),(24,1,3,5),(25,1,3,2),(26,1,3,5),(27,1,2,5),(28,1,3,5),(29,1,2,5),(30,1,2,5),(31,1,3,5),(32,1,3,5),(33,1,1,4),(34,1,2,5),(35,1,2,5);
 /*!40000 ALTER TABLE `rating` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -473,7 +513,7 @@ CREATE TABLE `ratingtenant` (
   KEY `fk_Konsumen_has_Tenant_Konsumen1_idx` (`konsumenId`),
   CONSTRAINT `fk_Konsumen_has_Tenant_Konsumen1` FOREIGN KEY (`konsumenId`) REFERENCES `konsumen` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_Konsumen_has_Tenant_Tenant1` FOREIGN KEY (`tenantId`) REFERENCES `tenant` (`idTenant`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -482,7 +522,7 @@ CREATE TABLE `ratingtenant` (
 
 LOCK TABLES `ratingtenant` WRITE;
 /*!40000 ALTER TABLE `ratingtenant` DISABLE KEYS */;
-INSERT INTO `ratingtenant` VALUES (1,1,1,1),(2,1,1,5),(3,1,1,4),(4,1,1,5),(5,1,1,5),(6,1,1,5),(7,1,1,5),(8,1,1,5),(9,1,1,5),(10,1,1,5),(11,1,2,5);
+INSERT INTO `ratingtenant` VALUES (1,1,1,1),(2,1,1,5),(3,1,1,4),(4,1,1,5),(5,1,1,5),(6,1,1,5),(7,1,1,5),(8,1,1,5),(9,1,1,5),(10,1,1,5),(11,1,2,5),(12,1,1,5);
 /*!40000 ALTER TABLE `ratingtenant` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -546,7 +586,7 @@ CREATE TABLE `tenant` (
 
 LOCK TABLES `tenant` WRITE;
 /*!40000 ALTER TABLE `tenant` DISABLE KEYS */;
-INSERT INTO `tenant` VALUES (1,'kluwih',1,4.5,'kluwih','123'),(2,'fk',1,5,'fk','123');
+INSERT INTO `tenant` VALUES (1,'kluwih',1,4.545454545,'kluwih','123'),(2,'fk',1,5,'fk','123');
 /*!40000 ALTER TABLE `tenant` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -607,10 +647,6 @@ LOCK TABLES `waktu` WRITE;
 INSERT INTO `waktu` VALUES (1,6,2000,7,'gassride'),(2,16,2000,17,'gassride'),(3,0,1000,5,'gassride'),(4,8,1000,15,'gassride'),(5,18,1000,24,'gassride'),(6,0,750,10,'gasskan'),(7,11,1500,12,'gasskan'),(8,13,750,16,'gasskan'),(9,17,1500,18,'gasskan'),(10,19,750,24,'gasskan');
 /*!40000 ALTER TABLE `waktu` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping routines for database 'gasslivery'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -621,4 +657,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-01-19  9:07:38
+-- Dump completed on 2026-01-21 10:33:22

@@ -15,11 +15,14 @@ namespace GassLivery_Kelompok7
     {
         OrderRide pesanan;
         OrderFood pesananFood;
-        public FormRatingDriver(OrderRide pPesanan, OrderFood pPesananFood)
+        OrderGassSend pesananSend;
+        public FormRatingDriver(OrderRide pPesanan, OrderFood pPesananFood, OrderGassSend sPesanan)
         {
             InitializeComponent();
             pesanan = pPesanan;
             pesananFood = pPesananFood;
+            pesananSend = sPesanan;
+
         }
 
         private void buttonSubmit_Click(object sender, EventArgs e)
@@ -52,7 +55,7 @@ namespace GassLivery_Kelompok7
                 MessageBox.Show("Terimakasih atas rating anda");
                 this.Close();
                 this.Owner.Close();
-                FormNotaGassRide formNota = new FormNotaGassRide(pesanan);
+                FormNotaGassRide formNota = new FormNotaGassRide(pesanan, null);
                 formNota.Owner = this;
                 formNota.ShowDialog();
             }
@@ -67,6 +70,17 @@ namespace GassLivery_Kelompok7
                 formNota.Owner = this;
                 formNota.ShowDialog();
             }
+            else if (pesananSend != null)
+            {
+                RatingDriver.RateDriver(pesananSend.Konsumen, pesananSend.Driver, nilai);
+                RatingDriver.UpdateTotalRatingDriver(pesananSend.Driver);
+                MessageBox.Show("Terimakasih atas rating anda");
+                this.Close();
+                this.Owner.Close();
+                FormNotaGassRide formNota = new FormNotaGassRide(null,pesananSend);
+                formNota.Owner = this;
+                formNota.ShowDialog();
+            }
         }
 
         private void FormRatingDriver_Load(object sender, EventArgs e)
@@ -77,6 +91,11 @@ namespace GassLivery_Kelompok7
             {
                 labelNamaDriver.Text = pesananFood.Driver.Nama;
                 buttonReport.Visible = false;
+            }
+            else if (pesananSend != null)
+            {
+                buttonReport.Visible = false;
+                labelNamaDriver.Text = pesanan.Driver.Nama;
             }
 
         }
@@ -91,7 +110,7 @@ namespace GassLivery_Kelompok7
                 MessageBox.Show("Driver telah dilaporkan. Terimakasih atas laporannya.");
                 this.Close();
                 this.Owner.Close();
-                FormNotaGassRide formNota = new FormNotaGassRide(pesanan);
+                FormNotaGassRide formNota = new FormNotaGassRide(pesanan, null);
                 formNota.Owner = this;
                 formNota.ShowDialog();
             }

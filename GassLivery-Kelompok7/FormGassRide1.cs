@@ -128,7 +128,7 @@ namespace GassLivery_Kelompok7
 
                     OrderRide pesanan = OrderRide.BuatPesanan(tip, konsumen, newDriver, waktuOrder, jarakLokasi, reqWanita,
                         reqMotorBaru, jamOrder, biaya);
-                    FormGassRideKonfirmasi frmKonfirmasi = new FormGassRideKonfirmasi(pesanan);
+                    FormGassRideKonfirmasi frmKonfirmasi = new FormGassRideKonfirmasi(pesanan, null);
                     frmKonfirmasi.ShowDialog();
 
                 }

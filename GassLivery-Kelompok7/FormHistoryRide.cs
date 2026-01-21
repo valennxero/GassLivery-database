@@ -56,7 +56,7 @@ namespace GassLivery_Kelompok7
             if (e.ColumnIndex == dataGridViewDataRiwayat.Columns["Detail"].Index)
             {
                 int idOrder = (int)dataGridViewDataRiwayat.Rows[idx].Cells[0].Value;
-                FormNotaGassRide formNota = new FormNotaGassRide(OrderRide.BacaData("idOrderRide", idOrder)[0]);
+                FormNotaGassRide formNota = new FormNotaGassRide(OrderRide.BacaData("idOrderRide", idOrder)[0], null);
                 formNota.ShowDialog();
             }
         }

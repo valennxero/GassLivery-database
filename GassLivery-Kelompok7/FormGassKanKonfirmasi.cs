@@ -39,7 +39,7 @@ namespace GassLivery_Kelompok7
             OrderFood.UpdateSelesai(pesanan);
             MessageBox.Show("Pesanan telah selesai");
             Driver.UangMasuk(pesanan.Tip, pesanan.Driver);
-            FormRatingDriver frm = new FormRatingDriver(null, pesanan);
+            FormRatingDriver frm = new FormRatingDriver(null, pesanan,null);
             frm.Owner = this;
             this.Close();
             frm.ShowDialog();

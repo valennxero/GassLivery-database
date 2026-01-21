@@ -91,6 +91,7 @@
             this.buttonGassSend.TabIndex = 8;
             this.buttonGassSend.Text = "Gass-Send";
             this.buttonGassSend.UseVisualStyleBackColor = true;
+            this.buttonGassSend.Click += new System.EventHandler(this.buttonGassSend_Click);
             // 
             // label1
             // 
@@ -173,6 +174,7 @@
             this.gassSendToolStripMenuItem.Name = "gassSendToolStripMenuItem";
             this.gassSendToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gassSendToolStripMenuItem.Text = "Gass-Send";
+            this.gassSendToolStripMenuItem.Click += new System.EventHandler(this.gassSendToolStripMenuItem_Click);
             // 
             // gassKanToolStripMenuItem
             // 
@@ -191,7 +193,7 @@
             // topUpSaldoToolStripMenuItem
             // 
             this.topUpSaldoToolStripMenuItem.Name = "topUpSaldoToolStripMenuItem";
-            this.topUpSaldoToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
+            this.topUpSaldoToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
             this.topUpSaldoToolStripMenuItem.Text = "Top Up Saldo";
             this.topUpSaldoToolStripMenuItem.Click += new System.EventHandler(this.topUpSaldoToolStripMenuItem_Click);
             // 

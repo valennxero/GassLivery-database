@@ -113,5 +113,19 @@ namespace GassLivery_Kelompok7
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void buttonGassSend_Click(object sender, EventArgs e)
+        {
+            FormGassSend frm = new FormGassSend(userLogin, null);
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void gassSendToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormHistorySend frm = new FormHistorySend(userLogin);
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }
