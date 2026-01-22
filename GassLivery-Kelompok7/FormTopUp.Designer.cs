@@ -41,76 +41,90 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(73, 79);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(71, 97);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 13);
+            this.label1.Size = new System.Drawing.Size(232, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Masukkan Nominal Top Up";
             // 
             // numericUpDownNominal
             // 
-            this.numericUpDownNominal.Location = new System.Drawing.Point(76, 120);
+            this.numericUpDownNominal.Location = new System.Drawing.Point(101, 148);
+            this.numericUpDownNominal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericUpDownNominal.Maximum = new decimal(new int[] {
             999999999,
             0,
             0,
             0});
             this.numericUpDownNominal.Name = "numericUpDownNominal";
-            this.numericUpDownNominal.Size = new System.Drawing.Size(134, 20);
+            this.numericUpDownNominal.Size = new System.Drawing.Size(179, 22);
             this.numericUpDownNominal.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 123);
+            this.label2.Location = new System.Drawing.Point(57, 151);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(21, 13);
+            this.label2.Size = new System.Drawing.Size(25, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "Rp";
             // 
             // buttonTopUp
             // 
-            this.buttonTopUp.Location = new System.Drawing.Point(104, 208);
+            this.buttonTopUp.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.buttonTopUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTopUp.Location = new System.Drawing.Point(101, 211);
+            this.buttonTopUp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonTopUp.Name = "buttonTopUp";
-            this.buttonTopUp.Size = new System.Drawing.Size(75, 23);
+            this.buttonTopUp.Size = new System.Drawing.Size(179, 83);
             this.buttonTopUp.TabIndex = 3;
             this.buttonTopUp.Text = "Top Up";
-            this.buttonTopUp.UseVisualStyleBackColor = true;
+            this.buttonTopUp.UseVisualStyleBackColor = false;
             this.buttonTopUp.Click += new System.EventHandler(this.buttonTopUp_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 37);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(33, 43);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.Size = new System.Drawing.Size(61, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Saldo :";
             // 
             // labelSaldo
             // 
             this.labelSaldo.AutoSize = true;
-            this.labelSaldo.Location = new System.Drawing.Point(88, 38);
+            this.labelSaldo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSaldo.Location = new System.Drawing.Point(97, 43);
+            this.labelSaldo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSaldo.Name = "labelSaldo";
-            this.labelSaldo.Size = new System.Drawing.Size(25, 13);
+            this.labelSaldo.Size = new System.Drawing.Size(36, 20);
             this.labelSaldo.TabIndex = 5;
             this.labelSaldo.Text = "000";
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(104, 254);
+            this.buttonCancel.BackColor = System.Drawing.Color.Red;
+            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.Location = new System.Drawing.Point(101, 322);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.Size = new System.Drawing.Size(179, 83);
             this.buttonCancel.TabIndex = 6;
             this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.UseVisualStyleBackColor = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // FormTopUp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(301, 340);
+            this.ClientSize = new System.Drawing.Size(401, 418);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.labelSaldo);
             this.Controls.Add(this.label3);
@@ -118,6 +132,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.numericUpDownNominal);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormTopUp";
             this.Text = "FormTopUp";
             this.Load += new System.EventHandler(this.FormTopUp_Load);

@@ -46,7 +46,7 @@ namespace backend_lib
             List<Lokasi> ListData = new List<Lokasi>();
             while (hasil.Read() == true)
             {
-                Lokasi l = new Lokasi (hasil.GetInt32(0), hasil.GetValue(1).ToString(), hasil.GetDouble(2), hasil.GetDouble(3));
+                Lokasi l = new Lokasi(hasil.GetInt32(0), hasil.GetValue(1).ToString(), hasil.GetDouble(2), hasil.GetDouble(3));
                 ListData.Add(l);
             }
             hasil.Close();

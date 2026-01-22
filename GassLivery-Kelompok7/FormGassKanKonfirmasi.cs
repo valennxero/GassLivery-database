@@ -44,5 +44,10 @@ namespace GassLivery_Kelompok7
             this.Close();
             frm.ShowDialog();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

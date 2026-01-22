@@ -55,7 +55,8 @@ namespace GassLivery_Kelompok7
 
         private void gassSendToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            FormGassSend formGassSend = new FormGassSend();
+            formGassSend.ShowDialog();
         }
     }
 }

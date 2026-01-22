@@ -213,7 +213,7 @@ CREATE TABLE `lokasi` (
 
 LOCK TABLES `lokasi` WRITE;
 /*!40000 ALTER TABLE `lokasi` DISABLE KEYS */;
-INSERT INTO `lokasi` VALUES (1,'Ubaya',2,2),(2,'Kebun Sawit',3,1);
+INSERT INTO `lokasi` VALUES (1,'Ubaya',106.82,-6.2),(2,'Kebun Sawit',106.85,-6.3);
 /*!40000 ALTER TABLE `lokasi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -647,6 +647,10 @@ LOCK TABLES `waktu` WRITE;
 INSERT INTO `waktu` VALUES (1,6,2000,7,'gassride'),(2,16,2000,17,'gassride'),(3,0,1000,5,'gassride'),(4,8,1000,15,'gassride'),(5,18,1000,24,'gassride'),(6,0,750,10,'gasskan'),(7,11,1500,12,'gasskan'),(8,13,750,16,'gasskan'),(9,17,1500,18,'gasskan'),(10,19,750,24,'gasskan');
 /*!40000 ALTER TABLE `waktu` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'gasslivery'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -657,4 +661,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-01-21 10:33:22
+-- Dump completed on 2026-01-22  8:16:24

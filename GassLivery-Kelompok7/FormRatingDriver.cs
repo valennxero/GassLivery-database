@@ -95,7 +95,7 @@ namespace GassLivery_Kelompok7
             else if (pesananSend != null)
             {
                 buttonReport.Visible = false;
-                labelNamaDriver.Text = pesanan.Driver.Nama;
+                labelNamaDriver.Text = pesananSend.Driver.Nama;
             }
 
         }
