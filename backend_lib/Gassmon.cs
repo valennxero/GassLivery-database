@@ -90,7 +90,7 @@ namespace backend_lib
                 {
                     poinDipakai = 0;
                 }
-
+                //jika sisa saldo cukup
                 if ((biaya - poinDipakai) <= sisaSaldo)
                 {
                     //Bayar
@@ -105,10 +105,6 @@ namespace backend_lib
                 if (biaya <= sisaSaldo && biaya > sisaPoin || biaya <= sisaSaldo && biaya <= sisaPoin)
                 {
                     Gassmon.BayarPakaiSaldo(biaya, pUserLogin);
-                }
-                else
-                {
-                    Gassmon.BayarPakaiPoin(biaya, pUserLogin);
                 }
             }
         }

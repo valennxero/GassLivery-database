@@ -145,7 +145,7 @@
             // 
             this.labelJarak.AutoSize = true;
             this.labelJarak.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelJarak.Location = new System.Drawing.Point(90, 170);
+            this.labelJarak.Location = new System.Drawing.Point(88, 170);
             this.labelJarak.Name = "labelJarak";
             this.labelJarak.Size = new System.Drawing.Size(19, 26);
             this.labelJarak.TabIndex = 23;
@@ -175,7 +175,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(115, 170);
+            this.label4.Location = new System.Drawing.Point(139, 170);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 26);
             this.label4.TabIndex = 27;

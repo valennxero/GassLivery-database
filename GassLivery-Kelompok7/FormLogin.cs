@@ -20,6 +20,7 @@ namespace GassLivery_Kelompok7
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             string uid = textBoxUsername.Text;
             string pwd = textBoxPassword.Text;
             if (comboBoxLogin.Text == "Konsumen")
